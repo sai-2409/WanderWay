@@ -160,7 +160,9 @@ document
   .addEventListener("submit", function (e) {
     // e.preventDefault();
     setTimeout(() => {
-      alert("We have received your information! We will contact with you as soon as possible.");
+      alert(
+        "We have received your information! We will contact with you as soon as possible."
+      );
     }, 1000); // Let the form submit first
   });
 
@@ -196,3 +198,64 @@ const imageObserver = new IntersectionObserver(
 );
 
 roadmapImages.forEach((img) => imageObserver.observe(img));
+
+// Tour Stops Button Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const tourStopsButtons = document.querySelectorAll(".tour__stops-btn");
+
+  tourStopsButtons.forEach((button) => {
+    // Add click functionality for mobile devices
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      const infoPanel = this.nextElementSibling;
+      const icon = this.querySelector(".btn-icon");
+
+      if (infoPanel.classList.contains("active")) {
+        // Hide panel
+        infoPanel.classList.remove("active");
+        icon.textContent = "+";
+        icon.style.transform = "rotate(0deg)";
+      } else {
+        // Hide all other panels first
+        document.querySelectorAll(".tour__stops-info").forEach((panel) => {
+          panel.classList.remove("active");
+        });
+        document.querySelectorAll(".btn-icon").forEach((icon) => {
+          icon.textContent = "+";
+          icon.style.transform = "rotate(0deg)";
+        });
+
+        // Show current panel
+        infoPanel.classList.add("active");
+        icon.textContent = "−";
+        icon.style.transform = "rotate(0deg)";
+      }
+    });
+
+    // Add keyboard accessibility
+    button.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+
+  // Close panels when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".tour__card")) {
+      const allPanels = document.querySelectorAll(".tour__stops-info");
+      const allIcons = document.querySelectorAll(".btn-icon");
+
+      allPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      allIcons.forEach((icon) => {
+        icon.textContent = "+";
+        icon.style.transform = "rotate(0deg)";
+      });
+    }
+  });
+});

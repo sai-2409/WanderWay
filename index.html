@@ -83,15 +83,15 @@
         <div
           class="hero__slide active"
           style="background-image: url('./img/central__park-main-b.jpg.avif')"
-          ></div>
-          <div
-            class="hero__slide"
-            style="background-image: url('./img/3Pedicab-looking.PNG')"
-          ></div>
+        ></div>
+        <div
+          class="hero__slide"
+          style="background-image: url('./img/3Pedicab-looking.PNG')"
+        ></div>
         <div
           class="hero__slide"
           style="background-image: url('./img/betesta-1.jpg')"
-          ></div>
+        ></div>
         <div
           class="hero__slide"
           style="background-image: url('./img/homeBridge-1.jpg')"
@@ -134,7 +134,10 @@
               <img src="./img/IMG_0587.PNG" alt="John Lennon Memorial" />
             </div>
             <div class="carousel__item">
-              <img src="./img/card__centralPh6.png" alt="John Lennon Memorial" />
+              <img
+                src="./img/card__centralPh6.png"
+                alt="John Lennon Memorial"
+              />
             </div>
             <div class="carousel__item">
               <img src="./img/card__baltoh4.png" alt="Friends Fountain" />
@@ -163,29 +166,82 @@
           <img src="./img/khush__1.jpg" alt="Tour 1" />
           <h3>Basic Tour</h3>
           <p class="tour__duration">30 min / 1 Stop</p>
-          <!-- <p class="tour__location">Betesta fountain</p> -->
-          <p class="tour__card-price"><span>$50</span> <br>+$10 each additional person</p>
+          <button class="tour__stops-btn" data-tour="basic">
+            <span class="btn-text">View Stops</span>
+            <span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+            </ul>
+          </div>
+          <p class="tour__card-price">
+            <span>$50</span> <br />+$10 each additional person
+          </p>
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
           <img src="./img/bakha__1.jpg" alt="Tour 1" />
           <h3>Economy Tour</h3>
           <p class="tour__duration">40 min / 2 Stops</p>
-          <p class="tour__card-price"><span>$60</span> <br>+$15 each additional person</p>
+          <button class="tour__stops-btn" data-tour="economy">
+            <span class="btn-text">View Stops</span>
+            <span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+            </ul>
+          </div>
+          <p class="tour__card-price">
+            <span>$60</span> <br />+$15 each additional person
+          </p>
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
           <img src="./img/IMG_9268.JPG" alt="Tour 1" />
           <h3>Classic Tour</h3>
           <p class="tour__duration">50 min / 3 Stops</p>
-          <p class="tour__card-price"><span>$70</span> <br>+$20 each additional person</p>
+          <button class="tour__stops-btn" data-tour="classic">
+            <span class="btn-text">View Stops</span>
+            <span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+              <li>Home Alone 2 Bridge</li>
+            </ul>
+          </div>
+          <p class="tour__card-price">
+            <span>$70</span> <br />+$20 each additional person
+          </p>
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
-          <img src="./img/IMG_9267.webp" alt="Tour 1" />
+          <img src="./img/baha1.JPG" alt="Tour 1" />
           <h3>Deluxe Tour</h3>
           <p class="tour__duration">60 min / 4 Stops</p>
-          <p class="tour__card-price"><span>$80</span> <br>+$25 each additional person</p>
+          <button class="tour__stops-btn" data-tour="deluxe">
+            <span class="btn-text">View Stops</span>
+            <span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+              <li>Home Alone 2 Bridge</li>
+              <li>John Lennon Memorial</li>
+            </ul>
+          </div>
+          <p class="tour__card-price">
+            <span>$80</span> <br />+$25 each additional person
+          </p>
           <button class="tour__card-button">Book Now</button>
         </div>
       </div>
@@ -215,7 +271,11 @@
       <div class="roadmap__timeline">
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img src="/img/statLib1.jpg" alt="Statue" class="roadmap__image hidden left" />
+            <img
+              src="/img/statLib1.jpg"
+              alt="Statue"
+              class="roadmap__image hidden left"
+            />
             <h3>Starting point: (60 Minutes)</h3>
             <p>
               764 Doris C Freedman PI, New York, NY 10019 (in front of William
@@ -262,7 +322,11 @@
 
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img src="/img/gapstow__bridge.png" alt="Gapstow Bridge" class="roadmap__image hidden right" />
+            <img
+              src="/img/gapstow__bridge.png"
+              alt="Gapstow Bridge"
+              class="roadmap__image hidden right"
+            />
             <h3>Gapstow Bridge (3 Minutes)</h3>
             <p>From movie Home Alone. Bridge from 1986</p>
           </div>
@@ -285,7 +349,11 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img src="/img/card__baltoh4.png" alt="Balto" class="roadmap__image hidden left" />
+            <img
+              src="/img/card__baltoh4.png"
+              alt="Balto"
+              class="roadmap__image hidden left"
+            />
             <h3>Statue Balto (Pass By)</h3>
             <p>National hero, From movie Balto. Statue from 1925</p>
           </div>
@@ -322,7 +390,11 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img src="/img/card__fount2.png" alt="Betesta Fountain" class="roadmap__image hidden right" />
+            <img
+              src="/img/card__fount2.png"
+              alt="Betesta Fountain"
+              class="roadmap__image hidden right"
+            />
             <h3>Bethesda Fountain - Bethesda Terrace (10 Minutes)</h3>
             <p>
               From movies Gossip Girls, Home alone, Elf ,Spider Man, Law and
@@ -350,7 +422,11 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img src="/img/card__Bowh7.png" alt="Bow Bridge" class="roadmap__image hidden left" />
+            <img
+              src="/img/card__Bowh7.png"
+              alt="Bow Bridge"
+              class="roadmap__image hidden left"
+            />
             <h3>Bow Bridge (6 Minutes)</h3>
             <p>Completed 1862</p>
           </div>
@@ -375,7 +451,11 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img src="/img/card__imagine8h.png" alt="Strawberry Fields" class="roadmap__image hidden right" />
+            <img
+              src="/img/card__imagine8h.png"
+              alt="Strawberry Fields"
+              class="roadmap__image hidden right"
+            />
             <h3>Strawberry Fields (7 Minutes)</h3>
             <p>
               Strawberry Fields was inaugurated on what would have been Lennon's
@@ -497,6 +577,25 @@
       </div>
     </section>
 
+    <!-- Booking Info -->
+    <section class="booking-info">
+      <div class="booking-info__card">
+        <h2 class="booking-info__title">Book Your Tour Easily</h2>
+        <p>
+          When you schedule a tour, you’ll receive a confirmation email with the
+          meeting point address and the name of your driver.
+        </p>
+        <h3 class="booking-info__subtitle">Payment Information</h3>
+        <p>
+          Please note that all payments are made directly to the driver at the
+          meeting point before the tour begins.
+        </p>
+        <p class="booking-info__note">
+          Your booking process is simple, secure, and convenient.
+        </p>
+      </div>
+    </section>
+
     <section class="form__section" id="contact">
       <h2 class="form__title">Book a Tour</h2>
       <form
@@ -513,11 +612,7 @@
         />
 
         <!-- The key line -->
-        <input
-          type="hidden"
-          name="_next"
-          value="./thankYou.html"
-        />
+        <input type="hidden" name="_next" value="./thankYou.html" />
 
         <input
           type="text"

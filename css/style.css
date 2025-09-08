@@ -879,6 +879,7 @@ body {
   padding: 2rem;
   background-color: #fff;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .review__title {
@@ -949,17 +950,30 @@ body {
   background-color: #004b00;
 }
 
+/* Booking Layout Container */
+.booking-layout {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  margin: 0;
+  padding: 40px 60px;
+  background: var(--light__green);
+  align-items: flex-start;
+}
+
 /* Writing styles for the meeting section */
 .meetingPoint {
-  background: var(--light__green);
-  padding: 60px 20px;
+  flex: 1;
+  padding: 0;
   text-align: center;
-  margin: 20px 0;
+  margin: 0;
+  background: transparent;
 }
 .booking-info {
-  background: var(--light__green);
-  padding: 40px 20px;
-  margin: 0 0 20px;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  background: transparent;
 }
 .booking-info__card {
   max-width: 800px;
@@ -972,7 +986,6 @@ body {
 }
 .booking-info__title {
   color: #004d00;
-  font-size: 1.8rem;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -1022,14 +1035,14 @@ body {
 
 /* Coding styles for the booking form of the website */
 .form__section {
+  flex: 1.2;
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 0;
   text-align: center;
   font-family: sans-serif;
   background-color: white;
   padding: 50px;
   border-radius: 25px;
-  /* width: 100%; */
 }
 
 .form__title {
@@ -1076,6 +1089,24 @@ body {
 @media (max-width: 1450px) {
   .roadmap__item {
     overflow: hidden;
+  }
+}
+
+/* Tablet responsive layout for booking sections */
+@media (max-width: 1024px) {
+  .booking-layout {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 40px;
+    width: 100%;
+  }
+
+  .meetingPoint,
+  .booking-info,
+  .form__section {
+    flex: none;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 /* Simple enhancement for better UI on small screens */
@@ -1329,13 +1360,6 @@ select.form__input:focus {
     margin-bottom: 15px;
     margin-left: 20px;
   }
-  .roadmap__dot {
-    /* position: absolute; */
-    /* left: 50%; */
-    /* top: 0; */
-    /* transform: translate(-50%, -50%); */
-    /* margin-left: 10px; */
-  }
   .roadmap__right {
     align-self: center;
     text-align: left;
@@ -1426,5 +1450,26 @@ select.form__input:focus {
   .form__section {
     max-width: 500px;
     width: 80%;
+  }
+
+  /* Responsive layout for booking sections */
+  .booking-layout {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+    width: 100%;
+  }
+
+  .meetingPoint,
+  .booking-info,
+  .form__section {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .form__section {
+    width: 90%;
+    padding: 30px 20px;
+    margin: 0 auto;
   }
 }

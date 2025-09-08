@@ -561,150 +561,154 @@
   </form>
 </section> -->
 
-    <!-- Meeting Point -->
-    <section class="meetingPoint">
-      <h2 class="meetingPoint-title intro__title">Meeting Point</h2>
-      <div class="meetingPoint__card">
-        <p>
-          764 Doris C Freedman PI, New York, NY 10019 (in front of William
-          Sherman Monument)
-        </p>
-        <a
-          href="https://maps.app.goo.gl/bMm2fPxTg7XrCiqq9?g_st=com.google.maps.preview.copy"
-        >
-          Open in Google Maps
-        </a>
-      </div>
-    </section>
-
-    <!-- Booking Info -->
-    <section class="booking-info">
-      <div class="booking-info__card">
-        <h2 class="booking-info__title">Book Your Tour Easily</h2>
-        <p>
-          When you schedule a tour, you’ll receive a confirmation email with the
-          meeting point address and the name of your driver.
-        </p>
-        <h3 class="booking-info__subtitle">Payment Information</h3>
-        <p>
-          Please note that all payments are made directly to the driver at the
-          meeting point before the tour begins.
-        </p>
-        <p class="booking-info__note">
-          Your booking process is simple, secure, and convenient.
-        </p>
-      </div>
-    </section>
-
-    <section class="form__section" id="contact">
-      <h2 class="form__title">Book a Tour</h2>
-      <form
-        action="https://formsubmit.co/wanderway06042025@gmail.com"
-        method="POST"
-        class="form__container"
-      >
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="box" />
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Pedicab Booking Request"
-        />
-
-        <!-- The key line -->
-        <input type="hidden" name="_next" value="./thankYou.html" />
-
-        <input
-          type="text"
-          name="Full Name"
-          placeholder="Your Full Name"
-          class="form__input"
-          required
-        />
-
-        <input
-          type="tel"
-          name="Phone Number"
-          placeholder="Your Phone Number"
-          class="form__input"
-          required
-        />
-
-        <!-- Tour Type Selector -->
-        <!-- <label for="tourType" class="tour__Date">Choose a Tour</label> -->
-        <select
-          name="Tour Type"
-          id="tourType"
-          class="form__input tour__select"
-          required
-        >
-          <option value="">-- Select a Tour --</option>
-          <option title="30 min / 1 Stop • $35 (Bethesda Fountain)">
-            Basic Tour
-          </option>
-          <option
-            title="40 min / 2 Stops • $50 (Bethesda Fountain, Friends Fountain)"
+    <!-- Booking Layout Container -->
+    <div class="booking-layout">
+      <!-- Meeting Point -->
+      <section class="meetingPoint">
+        <h2 class="meetingPoint-title intro__title">Meeting Point</h2>
+        <div class="meetingPoint__card">
+          <p>
+            764 Doris C Freedman PI, New York, NY 10019 (in front of William
+            Sherman Monument)
+          </p>
+          <a
+            href="https://maps.app.goo.gl/bMm2fPxTg7XrCiqq9?g_st=com.google.maps.preview.copy"
           >
-            Economy Tour
-          </option>
-          <option title="50 min / 3 Stops • $65 (Add Home Alone Bridge)">
-            Classic Tour
-          </option>
-          <option
-            title="60 min / 4 Stops • $75 (Full tour including John Lennon Memorial)"
+            Open in Google Maps
+          </a>
+        </div>
+      </section>
+
+      <!-- Form Section -->
+      <section class="form__section" id="contact">
+        <h2 class="form__title">Book a Tour</h2>
+        <form
+          action="https://formsubmit.co/wanderway06042025@gmail.com"
+          method="POST"
+          class="form__container"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="box" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Pedicab Booking Request"
+          />
+
+          <!-- The key line -->
+          <input type="hidden" name="_next" value="./thankYou.html" />
+
+          <input
+            type="text"
+            name="Full Name"
+            placeholder="Your Full Name"
+            class="form__input"
+            required
+          />
+
+          <input
+            type="tel"
+            name="Phone Number"
+            placeholder="Your Phone Number"
+            class="form__input"
+            required
+          />
+
+          <!-- Tour Type Selector -->
+          <!-- <label for="tourType" class="tour__Date">Choose a Tour</label> -->
+          <select
+            name="Tour Type"
+            id="tourType"
+            class="form__input tour__select"
+            required
           >
-            Deluxe Tour
-          </option>
-        </select>
-        <input
-          type="number"
-          name="Number"
-          placeholder="Number of Guests"
-          class="form__input"
-          required
-        />
+            <option value="">-- Select a Tour --</option>
+            <option title="30 min / 1 Stop • $35 (Bethesda Fountain)">
+              Basic Tour
+            </option>
+            <option
+              title="40 min / 2 Stops • $50 (Bethesda Fountain, Friends Fountain)"
+            >
+              Economy Tour
+            </option>
+            <option title="50 min / 3 Stops • $65 (Add Home Alone Bridge)">
+              Classic Tour
+            </option>
+            <option
+              title="60 min / 4 Stops • $75 (Full tour including John Lennon Memorial)"
+            >
+              Deluxe Tour
+            </option>
+          </select>
+          <input
+            type="number"
+            name="Number"
+            placeholder="Number of Guests"
+            class="form__input"
+            required
+          />
 
-        <!-- Date (Calendar) -->
-        <label class="tour__Date" for="tourDate">Choose a date</label>
-        <input
-          type="date"
-          id="tourDate"
-          name="Tour Date"
-          class="form__input"
-          required
-        />
+          <!-- Date (Calendar) -->
+          <label class="tour__Date" for="tourDate">Choose a date</label>
+          <input
+            type="date"
+            id="tourDate"
+            name="Tour Date"
+            class="form__input"
+            required
+          />
 
-        <!-- Time Selector -->
-        <select name="Tour Time" class="form__input" required>
-          <option value="">-- Choose Preferred Time --</option>
-          <option>06:00 AM</option>
-          <option>07:00 AM</option>
-          <option>08:00 AM</option>
-          <option>09:00 AM</option>
-          <option>10:00 AM</option>
-          <option>11:00 AM</option>
-          <option>12:00 PM</option>
-          <option>01:00 PM</option>
-          <option>02:00 PM</option>
-          <option>03:00 PM</option>
-          <option>04:00 PM</option>
-          <option>05:00 PM</option>
-          <option>06:00 PM</option>
-          <option>07:00 PM</option>
-          <option>08:00 PM</option>
-          <option>09:00 PM</option>
-          <option>10:00 PM</option>
-        </select>
+          <!-- Time Selector -->
+          <select name="Tour Time" class="form__input" required>
+            <option value="">-- Choose Preferred Time --</option>
+            <option>06:00 AM</option>
+            <option>07:00 AM</option>
+            <option>08:00 AM</option>
+            <option>09:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>01:00 PM</option>
+            <option>02:00 PM</option>
+            <option>03:00 PM</option>
+            <option>04:00 PM</option>
+            <option>05:00 PM</option>
+            <option>06:00 PM</option>
+            <option>07:00 PM</option>
+            <option>08:00 PM</option>
+            <option>09:00 PM</option>
+            <option>10:00 PM</option>
+          </select>
 
-        <textarea
-          name="Special Requests"
-          placeholder="Special requests..."
-          class="form__textarea"
-        ></textarea>
+          <textarea
+            name="Special Requests"
+            placeholder="Special requests..."
+            class="form__textarea"
+          ></textarea>
 
-        <button type="submit" class="form__button">Send Request</button>
-      </form>
-    </section>
+          <button type="submit" class="form__button">Send Request</button>
+        </form>
+      </section>
+
+      <!-- Booking Info -->
+      <section class="booking-info">
+        <h2 class="booking-info__title intro__title">Book Your Tour Easily</h2>
+        <div class="booking-info__card">
+          <p>
+            When you schedule a tour, you'll receive a confirmation email with
+            the meeting point address and the name of your driver.
+          </p>
+          <h3 class="booking-info__subtitle">Payment Information</h3>
+          <p>
+            Please note that all payments are made directly to the driver at the
+            meeting point before the tour begins.
+          </p>
+          <p class="booking-info__note">
+            Your booking process is simple, secure, and convenient.
+          </p>
+        </div>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

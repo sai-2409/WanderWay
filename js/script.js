@@ -27,16 +27,49 @@ hamburger.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-// Functioning the main bg slider
+// Video background functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const heroSlides = document.querySelectorAll(".hero__slide");
-  let heroIndex = 0;
+  const heroVideo = document.querySelector(".hero__video");
 
-  setInterval(() => {
-    heroSlides[heroIndex].classList.remove("active");
-    heroIndex = (heroIndex + 1) % heroSlides.length;
-    heroSlides[heroIndex].classList.add("active");
-  }, 5000); // Slide every 5 seconds
+  if (heroVideo) {
+    // Debug: Log video element
+    console.log("Video element found:", heroVideo);
+
+    // Check if video sources are loading
+    heroVideo.addEventListener("loadstart", () => {
+      console.log("Video started loading");
+    });
+
+    heroVideo.addEventListener("loadeddata", () => {
+      console.log("Video data loaded successfully");
+    });
+
+    heroVideo.addEventListener("error", (e) => {
+      console.error("Video error:", e);
+      console.log("Video src:", heroVideo.currentSrc);
+    });
+
+    heroVideo.addEventListener("canplay", () => {
+      console.log("Video can start playing");
+    });
+
+    // Ensure video plays on mobile devices
+    heroVideo.play().catch((error) => {
+      console.log("Video autoplay failed:", error);
+      // Fallback: show poster image if video fails to play
+    });
+
+    // Optional: Add video controls on hover/click for better UX
+    heroVideo.addEventListener("click", () => {
+      if (heroVideo.paused) {
+        heroVideo.play();
+      } else {
+        heroVideo.pause();
+      }
+    });
+  } else {
+    console.error("Video element not found!");
+  }
 });
 
 // Writing JS code for the carusoul
@@ -258,4 +291,80 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+});
+
+// Email validation functionality
+function validateEmail(email) {
+  // Basic email regex pattern
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
+
+function showEmailError(message) {
+  const errorDiv = document.getElementById("emailError");
+  const emailInput = document.getElementById("emailInput");
+
+  errorDiv.textContent = message;
+  errorDiv.style.display = "block";
+  emailInput.classList.add("error");
+  emailInput.classList.remove("valid");
+}
+
+function hideEmailError() {
+  const errorDiv = document.getElementById("emailError");
+  const emailInput = document.getElementById("emailInput");
+
+  errorDiv.style.display = "none";
+  emailInput.classList.remove("error");
+  emailInput.classList.add("valid");
+}
+
+function checkEmailValidation() {
+  const emailInput = document.getElementById("emailInput");
+  const email = emailInput.value.trim();
+
+  if (email === "") {
+    hideEmailError();
+    emailInput.classList.remove("valid", "error");
+    return true; // Let HTML5 required attribute handle empty validation
+  }
+
+  if (!validateEmail(email)) {
+    showEmailError(
+      "Please enter a valid email address (e.g., example@domain.com)"
+    );
+    return false;
+  }
+
+  hideEmailError();
+  return true;
+}
+
+// Add event listeners when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  const emailInput = document.getElementById("emailInput");
+  const form = document.querySelector(".form__container");
+
+  if (emailInput) {
+    // Real-time validation on input
+    emailInput.addEventListener("input", function () {
+      checkEmailValidation();
+    });
+
+    // Validation on blur (when user leaves the field)
+    emailInput.addEventListener("blur", function () {
+      checkEmailValidation();
+    });
+  }
+
+  if (form) {
+    // Prevent form submission if email is invalid
+    form.addEventListener("submit", function (e) {
+      if (!checkEmailValidation()) {
+        e.preventDefault();
+        emailInput.focus();
+        return false;
+      }
+    });
+  }
 });

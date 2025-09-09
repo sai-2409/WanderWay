@@ -132,7 +132,7 @@ body {
   z-index: 2;
   padding: 20px;
 }
-.hero__slider {
+.hero__video-container {
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -149,18 +149,53 @@ body {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   color: white;
 }
-.hero__slide {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+.hero__video {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
-.hero__slide.active {
-  opacity: 1;
+/* Support for iframe videos (YouTube/Vimeo) */
+.hero__video-container iframe.hero__video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: none;
+  min-width: auto;
+  min-height: auto;
+}
+
+/* Video loading state */
+.hero__video:not([src]) {
+  opacity: 0;
+}
+
+/* Fallback styles when video fails to load */
+.hero__video-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./img/central__park-main-b.jpg.avif");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Ensure video appears above fallback background */
+.hero__video[src] {
   z-index: 1;
 }
 
@@ -1003,6 +1038,51 @@ body {
   font-weight: 600;
   color: #004d00;
 }
+
+/* Accepted payment methods */
+.payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f6fbf6;
+  border: 1px solid rgba(0, 100, 0, 0.1);
+  border-radius: 10px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.payment-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+}
+
+.payment-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* For external SVG/PNG brand logos */
+.payment-icon-img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+.payment-label {
+  font-size: 0.875rem;
+  color: #004d00;
+  font-weight: 600;
+}
 .meetingPoint__card {
   max-width: 800px;
   margin: 0 auto;
@@ -1170,6 +1250,30 @@ select.form__input:focus {
 
 .form__button:hover {
   background-color: #004d00;
+}
+
+/* Email validation error styles */
+.form__error-message {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.form__input.error {
+  border-color: #d32f2f;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.form__input.valid {
+  border-color: #006400;
+  background-color: #f0fff0;
 }
 
 /* .booking {
@@ -1458,6 +1562,24 @@ select.form__input:focus {
     gap: 20px;
     padding: 20px 20px;
     width: 100%;
+  }
+
+  /* Mobile video optimizations */
+  .hero__video-container {
+    height: 60vh; /* Shorter on mobile */
+  }
+
+  .hero__video {
+    /* Ensure video covers properly on mobile */
+    object-position: center center;
+  }
+
+  .hero__headline {
+    font-size: 2.5rem;
+  }
+
+  .hero__sub {
+    font-size: 1rem;
   }
 
   .meetingPoint,

@@ -79,28 +79,31 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="hero__slider">
-        <div
-          class="hero__slide active"
-          style="background-image: url('./img/central__park-main-b.jpg.avif')"
-        ></div>
-        <div
-          class="hero__slide"
-          style="background-image: url('./img/3Pedicab-looking.PNG')"
-        ></div>
-        <div
-          class="hero__slide"
-          style="background-image: url('./img/betesta-1.jpg')"
-        ></div>
-        <div
-          class="hero__slide"
-          style="background-image: url('./img/homeBridge-1.jpg')"
-        ></div>
+      <div class="hero__video-container">
+        <video
+          src="./videos/main-video.mp4"
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/central__park-main-b.jpg.avif"
+        >
+          <!-- Your MP4 video (convert your MOV to MP4, not WebP!) -->
+          <source src="./videos/main-video.mp4" type="video/mp4" />
+          <!-- Fallback test video if your video doesn't work -->
+          <source
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            type="video/mp4"
+          />
+          <!-- Fallback for browsers that don't support video -->
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div class="hero__overlay">
         <div class="hero__content">
           <h1 class="hero__headline">
-            “Lose yourself in the magic of every turn.”
+            "Lose yourself in the magic of every turn."
           </h1>
           <p class="hero__sub">
             Explore Central Park with our friendly Pedicab Tours
@@ -131,16 +134,16 @@
               <img src="./img/betesta-1.jpg" alt="Bethesda Fountain" />
             </div>
             <div class="carousel__item">
-              <img src="./img/IMG_0587.PNG" alt="John Lennon Memorial" />
+              <img src="./img/newImage1.JPG" alt="John Lennon Memorial" />
             </div>
             <div class="carousel__item">
               <img
-                src="./img/card__centralPh6.png"
+                src="./img/newImage2.JPG"
                 alt="John Lennon Memorial"
               />
             </div>
             <div class="carousel__item">
-              <img src="./img/card__baltoh4.png" alt="Friends Fountain" />
+              <img src="./img/newImage3.JPG" alt="Friends Fountain" />
             </div>
             <div class="carousel__item">
               <img src="./img/khush__1.jpg" alt="Home Alone 2 Bridge" />
@@ -595,7 +598,8 @@
             value="New Pedicab Booking Request"
           />
 
-          <!-- The key line -->
+          <!-- The key line - Update this URL after deployment to your full domain -->
+          <!-- Example: value="https://your-site-name.onrender.com/thankYou.html" -->
           <input type="hidden" name="_next" value="./thankYou.html" />
 
           <input
@@ -607,12 +611,18 @@
           />
 
           <input
-            type="tel"
-            name="Phone Number"
-            placeholder="Your Phone Number"
+            type="email"
+            name="Email Address"
+            placeholder="Your Email Address"
             class="form__input"
+            id="emailInput"
             required
           />
+          <div
+            id="emailError"
+            class="form__error-message"
+            style="display: none"
+          ></div>
 
           <!-- Tour Type Selector -->
           <!-- <label for="tourType" class="tour__Date">Choose a Tour</label> -->
@@ -703,6 +713,114 @@
             Please note that all payments are made directly to the driver at the
             meeting point before the tour begins.
           </p>
+          <h3 class="booking-info__subtitle">Accepted Payments</h3>
+          <div class="payment-methods" aria-label="Accepted payment methods">
+            <!-- Cash -->
+            <div class="payment-method" aria-label="Cash">
+              <img
+                class="payment-icon-img"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Money_Flat_Icon.svg"
+                alt="Cash"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <span class="payment-label">Cash</span>
+            </div>
+
+            <!-- Venmo (official wordmark) -->
+            <div class="payment-method" aria-label="Venmo">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Venmo_logo.svg"
+                alt="Venmo"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                decoding="async"
+                onerror="if(!this.dataset.alt1){this.dataset.alt1=1;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Venmo_2014_logo.svg';}else{this.onerror=null;this.src='https://cdn.simpleicons.org/venmo/008CFF';}"
+              />
+              <!-- <span class="payment-label">Venmo</span> -->
+            </div>
+
+            <!-- PayPal (official wordmark) -->
+            <div class="payment-method" aria-label="PayPal">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                alt="PayPal"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <!-- <span class="payment-label">PayPal</span> -->
+            </div>
+
+            <!-- Zelle (official logo) -->
+            <div class="payment-method" aria-label="Zelle">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Zelle_logo.svg"
+                alt="Zelle"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                decoding="async"
+                onerror="if(!this.dataset.alt1){this.dataset.alt1=1;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Zelle_logo.svg';}else{this.onerror=null;this.src='https://cdn.simpleicons.org/zelle/6C19FF';}"
+              />
+              <!-- <span class="payment-label">Zelle</span> -->
+            </div>
+
+            <!-- Cash App (official logo) -->
+            <div class="payment-method" aria-label="Cash App">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Square_Cash_app_logo.svg"
+                alt="Cash App"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <span class="payment-label">Cash App</span>
+            </div>
+
+            <!-- Debit/Credit Cards -->
+            <div class="payment-method" aria-label="Visa">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                alt="Visa"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <span class="payment-label">Visa</span>
+            </div>
+            <div class="payment-method" aria-label="Mastercard">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                alt="Mastercard"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <span class="payment-label">Mastercard</span>
+            </div>
+            <div class="payment-method" aria-label="American Express">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg"
+                alt="American Express"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <span class="payment-label">AmEx</span>
+            </div>
+            <div class="payment-method" aria-label="Discover">
+              <img
+                class="payment-icon-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg"
+                alt="Discover"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+              <!-- <span class="payment-label">Discover</span> -->
+            </div>
+          </div>
           <p class="booking-info__note">
             Your booking process is simple, secure, and convenient.
           </p>

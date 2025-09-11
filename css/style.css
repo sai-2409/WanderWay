@@ -1056,7 +1056,6 @@ body {
   border: 1px solid rgba(0, 100, 0, 0.1);
   border-radius: 10px;
   padding: 6px 10px;
-  white-space: nowrap;
 }
 
 .payment-icon {

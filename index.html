@@ -137,10 +137,7 @@
               <img src="./img/newImage1.JPG" alt="John Lennon Memorial" />
             </div>
             <div class="carousel__item">
-              <img
-                src="./img/newImage2.JPG"
-                alt="John Lennon Memorial"
-              />
+              <img src="./img/newImage2.JPG" alt="John Lennon Memorial" />
             </div>
             <div class="carousel__item">
               <img src="./img/newImage3.JPG" alt="Friends Fountain" />
@@ -586,17 +583,10 @@
       <section class="form__section" id="contact">
         <h2 class="form__title">Book a Tour</h2>
         <form
-          action="https://formsubmit.co/wanderway06042025@gmail.com"
+          action="/api/book"
           method="POST"
           class="form__container"
         >
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="box" />
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Pedicab Booking Request"
-          />
 
           <!-- The key line - Update this URL after deployment to your full domain -->
           <!-- Example: value="https://your-site-name.onrender.com/thankYou.html" -->
@@ -735,8 +725,6 @@
                 alt="Venmo"
                 loading="lazy"
                 referrerpolicy="no-referrer"
-                decoding="async"
-                onerror="if(!this.dataset.alt1){this.dataset.alt1=1;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Venmo_2014_logo.svg';}else{this.onerror=null;this.src='https://cdn.simpleicons.org/venmo/008CFF';}"
               />
               <!-- <span class="payment-label">Venmo</span> -->
             </div>
@@ -761,8 +749,6 @@
                 alt="Zelle"
                 loading="lazy"
                 referrerpolicy="no-referrer"
-                decoding="async"
-                onerror="if(!this.dataset.alt1){this.dataset.alt1=1;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Zelle_logo.svg';}else{this.onerror=null;this.src='https://cdn.simpleicons.org/zelle/6C19FF';}"
               />
               <!-- <span class="payment-label">Zelle</span> -->
             </div>
@@ -818,7 +804,7 @@
                 loading="lazy"
                 referrerpolicy="no-referrer"
               />
-              <!-- <span class="payment-label">Discover</span> -->
+              <span class="payment-label">Discover</span>
             </div>
           </div>
           <p class="booking-info__note">

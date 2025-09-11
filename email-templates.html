@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderWay Email Templates - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'wanderway': {
+                50: '#f0fdf4',
+                100: '#dcfce7',
+                500: '#22c55e',
+                600: '#16a34a',
+                700: '#15803d',
+                800: '#166534',
+                900: '#14532d',
+                950: '#006400'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-['Inter'] min-h-screen bg-gradient-to-br from-wanderway-50 to-wanderway-100 p-10">
+    <div class="max-w-6xl mx-auto mb-10 text-center">
+      <h1 class="text-4xl font-bold text-wanderway-950 mb-3">🚲 WanderWay Email Templates</h1>
+      <p class="text-gray-600 mb-8 text-lg">Beautiful, responsive email designs for your pedicab tour business</p>
+
+      <div class="flex gap-3 justify-center mb-8 flex-wrap">
+        <button 
+          class="px-6 py-3 border-2 border-wanderway-950 bg-wanderway-950 text-white rounded-lg cursor-pointer font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg tab-button" 
+          onclick="showTemplate('customer')"
+          data-template="customer"
+        >
+          📧 Customer Confirmation
+        </button>
+        <button 
+          class="px-6 py-3 border-2 border-wanderway-950 bg-white text-wanderway-950 rounded-lg cursor-pointer font-semibold transition-all duration-300 hover:bg-wanderway-950 hover:text-white hover:-translate-y-0.5 hover:shadow-lg tab-button" 
+          onclick="showTemplate('business')"
+          data-template="business"
+        >
+          💼 Business Notification
+        </button>
+        <button 
+          class="px-6 py-3 border-2 border-wanderway-950 bg-white text-wanderway-950 rounded-lg cursor-pointer font-semibold transition-all duration-300 hover:bg-wanderway-950 hover:text-white hover:-translate-y-0.5 hover:shadow-lg tab-button" 
+          onclick="showTemplate('reminder')"
+          data-template="reminder"
+        >
+          ⏰ Tour Reminder
+        </button>
+      </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden mb-10">
+      <!-- Customer Confirmation Email Template -->
+      <div id="customer-template" class="template block">
+        <div class="bg-gradient-to-br from-wanderway-950 to-wanderway-500 py-10 px-8 text-center">
+          <h1 class="text-white text-3xl font-bold mb-3 drop-shadow-md">
+            🚲 WanderWay
+          </h1>
+          <p class="text-green-100 text-base">
+            Central Park Pedicab Tours
+          </p>
+        </div>
+
+        <div class="py-10 px-8">
+          <div class="bg-gradient-to-r from-wanderway-500 to-wanderway-600 text-white px-6 py-3 rounded-full inline-block font-semibold text-sm mb-8 uppercase tracking-wide">
+            ✅ Booking Confirmed
+          </div>
+
+          <h2 class="text-wanderway-950 text-2xl font-bold mb-5">
+            Thank you for choosing WanderWay!
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-6">
+            We're excited to show you the beauty and magic of Central Park! Your
+            pedicab tour has been confirmed and we'll be in touch within 24
+            hours with all the details.
+          </p>
+
+          <div class="bg-green-50 border border-green-200 rounded-xl p-6 my-6">
+            <h3 class="text-wanderway-950 text-lg font-semibold mb-5">
+              📋 Your Booking Details
+            </h3>
+
+            <div class="flex justify-between items-center py-3 border-b border-green-100">
+              <span class="font-semibold text-wanderway-950 text-sm">👤 Name:</span>
+              <span class="text-gray-700 font-medium">[Customer Name]</span>
+            </div>
+
+            <div class="flex justify-between items-center py-3 border-b border-green-100">
+              <span class="font-semibold text-wanderway-950 text-sm">🚲 Tour Type:</span>
+              <span class="text-gray-700 font-medium">[Tour Package]</span>
+            </div>
+
+            <div class="flex justify-between items-center py-3 border-b border-green-100">
+              <span class="font-semibold text-wanderway-950 text-sm">📅 Date:</span>
+              <span class="text-gray-700 font-medium">[Tour Date]</span>
+            </div>
+
+            <div class="flex justify-between items-center py-3">
+              <span class="font-semibold text-wanderway-950 text-sm">📍 Meeting Point:</span>
+              <span class="text-gray-700 font-medium">Sherman Monument</span>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-6 text-center">
+            <h3 class="text-blue-700 text-lg font-semibold mb-4">
+              📞 Need to reach us?
+            </h3>
+            <p class="text-blue-800 mb-1">
+              <strong>Phone:</strong> +1 (213) 709-5924
+            </p>
+            <p class="text-blue-800">
+              <strong>Email:</strong> wanderway06042025@gmail.com
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 py-8 px-8 text-center border-t border-gray-200">
+          <p class="text-gray-600 text-sm mb-1">
+            <strong>WanderWay - Central Park Pedicab Tours</strong>
+          </p>
+          <p class="text-gray-600 text-sm">
+            © 2025 WanderWay. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      <!-- Business Notification Email Template -->
+      <div id="business-template" class="template hidden">
+        <div class="bg-gradient-to-br from-blue-800 to-blue-600 py-8 px-8 text-center">
+          <div class="bg-red-600 text-white px-4 py-2 rounded-full inline-block font-semibold text-xs mb-5 uppercase tracking-wide">
+            🚨 New Booking
+          </div>
+          <h1 class="text-white text-2xl font-bold">
+            WanderWay Business Portal
+          </h1>
+        </div>
+
+        <div class="py-8 px-8">
+          <h2 class="text-blue-800 text-xl font-bold mb-5">
+            🚲 New Pedicab Tour Request
+          </h2>
+
+          <p class="text-gray-600 mb-6">
+            You have received a new booking request. Please review the details
+            below and confirm with the customer within 24 hours.
+          </p>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 my-5">
+            <h3 class="text-blue-800 text-lg font-semibold mb-4">
+              📋 Booking Summary
+            </h3>
+            <p class="text-blue-800 font-semibold">
+              [Tour Type] for [Number] guests on [Date] at [Time]
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+              <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                Customer Name
+              </div>
+              <div class="text-base font-semibold text-gray-900">
+                [Full Name]
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+              <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                Email
+              </div>
+              <div class="text-base font-semibold text-gray-900">
+                [Email Address]
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+              <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                Tour Date
+              </div>
+              <div class="text-base font-semibold text-gray-900">
+                [Tour Date]
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+              <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                Tour Time
+              </div>
+              <div class="text-base font-semibold text-gray-900">
+                [Tour Time]
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center my-8">
+            <a
+              href="mailto:[Customer Email]"
+              class="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-200 no-underline"
+            >
+              ✅ Confirm Booking
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour Reminder Email Template -->
+      <div id="reminder-template" class="template hidden">
+        <div class="bg-gradient-to-br from-amber-500 to-orange-600 py-10 px-8 text-center">
+          <h1 class="text-white text-3xl font-bold mb-3">
+            ⏰ Tour Reminder
+          </h1>
+          <p class="text-amber-100 text-base">
+            Your WanderWay adventure is tomorrow!
+          </p>
+        </div>
+
+        <div class="py-10 px-8">
+          <div class="bg-amber-100 border-l-4 border-amber-500 p-5 my-6 rounded-r-lg">
+            <h3 class="text-amber-800 text-lg font-semibold mb-4">
+              🎯 Tomorrow's Tour Details
+            </h3>
+            <p class="text-amber-900 font-semibold">
+              [Tour Type] • [Date] at [Time] • Sherman Monument
+            </p>
+          </div>
+
+          <h2 class="text-orange-600 text-2xl font-bold mb-5">
+            Hi [Customer Name]!
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Just a friendly reminder that your Central Park pedicab tour is
+            scheduled for tomorrow! We're excited to show you the magic of the
+            park.
+          </p>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-6">
+            <h3 class="text-blue-700 text-lg font-semibold mb-4">
+              📍 Meeting Information
+            </h3>
+            <p class="text-blue-800 mb-1">
+              <strong>Location:</strong> Sherman Monument
+            </p>
+            <p class="text-blue-800 mb-1">
+              <strong>Address:</strong> 764 Doris C Freedman Pl, NY 10019
+            </p>
+            <p class="text-blue-800">
+              <strong>Your Driver:</strong> [Driver Name] - [Driver Phone]
+            </p>
+          </div>
+
+          <div class="bg-red-50 border border-red-200 rounded-lg p-5 my-6">
+            <h4 class="text-red-700 text-base font-semibold mb-3">
+              💡 Important Reminders
+            </h4>
+            <ul class="text-red-800 list-disc pl-5 space-y-1">
+              <li>Arrive 10 minutes early at Sherman Monument</li>
+              <li>Bring cash for payment (exact amount preferred)</li>
+              <li>Dress comfortably for the weather</li>
+              <li>Don't forget your camera! 📸</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-green-50 border border-green-200 rounded-xl p-6 my-8 border-l-4 border-l-wanderway-950">
+      <h4 class="text-wanderway-950 text-lg font-semibold mb-4">💡 How to Use These Templates</h4>
+      <ul class="text-wanderway-800 space-y-2 pl-5 list-disc">
+        <li>
+          <strong>FormSubmit Integration:</strong> Copy the HTML code and use it
+          in your FormSubmit autoresponse
+        </li>
+        <li>
+          <strong>Manual Emails:</strong> Use as templates for manual customer
+          communication
+        </li>
+        <li>
+          <strong>Customization:</strong> Replace [brackets] with actual
+          customer data
+        </li>
+        <li>
+          <strong>Mobile Friendly:</strong> All templates are responsive and
+          work on mobile devices
+        </li>
+      </ul>
+    </div>
+
+    <div class="max-w-6xl mx-auto bg-gray-50 rounded-xl p-8 shadow-lg">
+      <h3 class="text-wanderway-950 text-2xl font-bold mb-4">📋 HTML Code (Copy & Paste)</h3>
+      <textarea 
+        id="email-code" 
+        readonly 
+        class="w-full h-80 font-mono text-sm border-2 border-gray-300 rounded-lg p-4 bg-white resize-y focus:border-wanderway-500 focus:outline-none"
+      ></textarea>
+      <button 
+        class="mt-4 px-6 py-3 bg-wanderway-950 text-white font-semibold rounded-lg hover:bg-wanderway-800 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg" 
+        onclick="copyCode()"
+      >
+        📋 Copy HTML Code
+      </button>
+    </div>
+
+    <script>
+      const templates = {
+        customer: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderWay - Booking Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-green-50">
+    <div class="max-w-2xl mx-auto bg-white">
+        <div class="bg-gradient-to-br from-green-800 to-green-500 py-10 px-8 text-center">
+            <h1 class="text-white text-3xl font-bold mb-3 drop-shadow-md">🚲 WanderWay</h1>
+            <p class="text-green-100">Central Park Pedicab Tours</p>
+        </div>
+        <div class="py-10 px-8">
+            <div class="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-full inline-block font-semibold text-sm mb-8 uppercase tracking-wide">✅ Booking Confirmed</div>
+            <h2 class="text-green-800 text-2xl font-bold mb-5">Thank you for choosing WanderWay!</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">We're excited to show you the beauty and magic of Central Park! Your pedicab tour has been confirmed and we'll be in touch within 24 hours.</p>
+            
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 my-6">
+                <h3 class="text-green-800 text-lg font-semibold mb-5">📋 Your Booking Details</h3>
+                <div class="flex justify-between items-center py-3 border-b border-green-100">
+                    <span class="font-semibold text-green-800 text-sm">👤 Name:</span>
+                    <span class="text-gray-700 font-medium">[Customer Name]</span>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b border-green-100">
+                    <span class="font-semibold text-green-800 text-sm">🚲 Tour:</span>
+                    <span class="text-gray-700 font-medium">[Tour Type]</span>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b border-green-100">
+                    <span class="font-semibold text-green-800 text-sm">📅 Date:</span>
+                    <span class="text-gray-700 font-medium">[Tour Date]</span>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b border-green-100">
+                    <span class="font-semibold text-green-800 text-sm">⏰ Time:</span>
+                    <span class="text-gray-700 font-medium">[Tour Time]</span>
+                </div>
+                <div class="flex justify-between items-center py-3">
+                    <span class="font-semibold text-green-800 text-sm">📍 Meeting:</span>
+                    <span class="text-gray-700 font-medium">Sherman Monument</span>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
+                <h3 class="text-blue-700 text-lg font-semibold mb-4">📞 Contact Us</h3>
+                <p class="text-blue-800 mb-1"><strong>Phone:</strong> +1 (213) 709-5924</p>
+                <p class="text-blue-800"><strong>Email:</strong> wanderway06042025@gmail.com</p>
+            </div>
+        </div>
+        <div class="bg-gray-50 py-8 px-8 text-center border-t border-gray-200">
+            <p class="text-gray-600 text-sm mb-1"><strong>WanderWay Tours</strong></p>
+            <p class="text-gray-600 text-sm">© 2025 All rights reserved</p>
+        </div>
+    </div>
+</body>
+</html>`,
+
+        business: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Booking - WanderWay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <div class="max-w-2xl mx-auto bg-white">
+        <div class="bg-gradient-to-br from-blue-800 to-blue-600 py-8 px-8 text-center">
+            <div class="bg-red-600 text-white px-4 py-2 rounded-full inline-block font-semibold text-xs mb-5 uppercase tracking-wide">🚨 New Booking</div>
+            <h1 class="text-white text-2xl font-bold">WanderWay Business Portal</h1>
+        </div>
+        <div class="py-8 px-8">
+            <h2 class="text-blue-800 text-xl font-bold mb-5">🚲 New Pedicab Tour Request</h2>
+            <p class="text-gray-600 mb-6">You have received a new booking request. Please review the details below and confirm with the customer within 24 hours.</p>
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 my-5">
+                <h3 class="text-blue-800 text-lg font-semibold mb-4">📋 Booking Summary</h3>
+                <p class="text-blue-800 font-semibold">[Tour Type] for [Number] guests on [Date] at [Time]</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Customer Name</div>
+                    <div class="text-base font-semibold text-gray-900">[Full Name]</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Email</div>
+                    <div class="text-base font-semibold text-gray-900">[Email Address]</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Tour Date</div>
+                    <div class="text-base font-semibold text-gray-900">[Tour Date]</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Tour Time</div>
+                    <div class="text-base font-semibold text-gray-900">[Tour Time]</div>
+                </div>
+            </div>
+            
+            <div class="text-center my-8">
+                <a href="mailto:[Customer Email]" class="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-200 no-underline">✅ Confirm Booking</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>`,
+
+        reminder: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Reminder - WanderWay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-['Inter'] bg-amber-50">
+    <div class="max-w-2xl mx-auto bg-white">
+        <div class="bg-gradient-to-br from-amber-500 to-orange-600 py-10 px-8 text-center">
+            <h1 class="text-white text-3xl font-bold mb-3">⏰ Tour Reminder</h1>
+            <p class="text-amber-100 text-base">Your WanderWay adventure is tomorrow!</p>
+        </div>
+        <div class="py-10 px-8">
+            <div class="bg-amber-100 border-l-4 border-amber-500 p-5 my-6 rounded-r-lg">
+                <h3 class="text-amber-800 text-lg font-semibold mb-4">🎯 Tomorrow's Tour Details</h3>
+                <p class="text-amber-900 font-semibold">[Tour Type] • [Date] at [Time] • Sherman Monument</p>
+            </div>
+            
+            <h2 class="text-orange-600 text-2xl font-bold mb-5">Hi [Customer Name]!</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">Just a friendly reminder that your Central Park pedicab tour is scheduled for tomorrow! We're excited to show you the magic of the park.</p>
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-6">
+                <h3 class="text-blue-700 text-lg font-semibold mb-4">📍 Meeting Information</h3>
+                <p class="text-blue-800 mb-1"><strong>Location:</strong> Sherman Monument</p>
+                <p class="text-blue-800 mb-1"><strong>Address:</strong> 764 Doris C Freedman Pl, NY 10019</p>
+                <p class="text-blue-800"><strong>Your Driver:</strong> [Driver Name] - [Driver Phone]</p>
+            </div>
+            
+            <div class="bg-red-50 border border-red-200 rounded-lg p-5 my-6">
+                <h4 class="text-red-700 text-base font-semibold mb-3">💡 Important Reminders</h4>
+                <ul class="text-red-800 list-disc pl-5 space-y-1">
+                    <li>Arrive 10 minutes early at Sherman Monument</li>
+                    <li>Bring cash for payment (exact amount preferred)</li>
+                    <li>Dress comfortably for the weather</li>
+                    <li>Don't forget your camera! 📸</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>`
+      };
+
+      function showTemplate(templateType) {
+        // Hide all templates
+        document.querySelectorAll(".template").forEach((t) => {
+          t.classList.add("hidden");
+          t.classList.remove("block");
+        });
+        
+        // Reset all tab buttons
+        document.querySelectorAll(".tab-button").forEach((b) => {
+          b.classList.remove("bg-wanderway-950", "text-white");
+          b.classList.add("bg-white", "text-wanderway-950");
+        });
+
+        // Show selected template
+        const selectedTemplate = document.getElementById(templateType + "-template");
+        selectedTemplate.classList.remove("hidden");
+        selectedTemplate.classList.add("block");
+        
+        // Activate selected tab
+        event.target.classList.remove("bg-white", "text-wanderway-950");
+        event.target.classList.add("bg-wanderway-950", "text-white");
+
+        // Update code textarea
+        document.getElementById("email-code").value = templates[templateType];
+      }
+
+      function copyCode() {
+        const textarea = document.getElementById("email-code");
+        textarea.select();
+        document.execCommand("copy");
+
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = "✅ Copied!";
+        button.classList.remove("bg-wanderway-950", "hover:bg-wanderway-800");
+        button.classList.add("bg-green-600", "hover:bg-green-700");
+
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove("bg-green-600", "hover:bg-green-700");
+          button.classList.add("bg-wanderway-950", "hover:bg-wanderway-800");
+        }, 2000);
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("email-code").value = templates.customer;
+      });
+    </script>
+  </body>
+</html>

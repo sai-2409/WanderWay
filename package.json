@@ -17,6 +17,9 @@
   "author": "WanderWay Tours",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/client": "^8.1.5",
+    "@sendgrid/mail": "^8.1.5",
+    "dotenv": "^17.2.2",
     "express": "^4.18.2",
     "path": "^0.12.7"
   },

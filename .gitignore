@@ -45,6 +45,18 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.production
+
+# Python virtual environment
+venv/
+__pycache__/
+
+# Large files that shouldn't be deployed
+*.mp4
+*.mov
+*.avi
+videos/
 
 # Mac system files
 .DS_Store

@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanderWay</title>
+    <title>Thank You - WanderWay</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -13,95 +13,360 @@
       href="img/logotype first try.svg"
       type="image/x-icon"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wanderway: {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+                950: "#052e16",
+              },
+              primary: "#006400",
+              secondary: "#f4f4f4",
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "bounce-gentle": "bounceGentle 2s infinite",
+              "pulse-slow": "pulse 3s infinite",
+              float: "float 3s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(30px)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0)",
+                },
+              },
+              bounceGentle: {
+                "0%, 100%": { transform: "translateY(-5px)" },
+                "50%": { transform: "translateY(0px)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-wanderway-50 via-white to-wanderway-100 font-inter"
+  >
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div
+        class="absolute -top-40 -right-40 w-80 h-80 bg-wanderway-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"
+      ></div>
+      <div
+        class="absolute -bottom-40 -left-40 w-80 h-80 bg-wanderway-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow animation-delay-2000"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-wanderway-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float"
+      ></div>
+    </div>
+
+    <!-- Main Content -->
+    <div
+      class="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 py-8 sm:py-12 lg:py-16"
+    >
+      <div class="w-full max-w-md sm:max-w-lg lg:max-w-xl my-4 sm:my-6 lg:my-8">
+        <!-- Success Card -->
+        <div
+          class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 sm:p-10 lg:p-12 text-center animate-slide-up"
+        >
+          <!-- Success Icon -->
+          <div class="mb-8 animate-bounce-gentle">
+            <div
+              class="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-wanderway-500 to-wanderway-600 rounded-full flex items-center justify-center mx-auto shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 sm:w-12 sm:h-12 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Logo -->
+          <div
+            class="mb-8 animate-fade-in"
+            style="animation-delay: 0.2s; animation-fill-mode: both"
+          >
+            <img
+              src="./img/logotype first try.svg"
+              alt="WanderWay Logo"
+              class="h-16 sm:h-20 mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+
+          <!-- Main Heading -->
+          <div
+            class="animate-fade-in"
+            style="animation-delay: 0.4s; animation-fill-mode: both"
+          >
+            <h1
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-wanderway-700 to-wanderway-600 bg-clip-text text-transparent mb-4"
+            >
+              Thank You! 🎉
+            </h1>
+          </div>
+
+          <!-- Success Message -->
+          <div
+            class="animate-fade-in"
+            style="animation-delay: 0.6s; animation-fill-mode: both"
+          >
+            <div
+              class="bg-wanderway-50 border border-wanderway-200 rounded-2xl p-6 mb-8"
+            >
+              <h2
+                class="text-xl sm:text-2xl font-semibold text-wanderway-800 mb-3"
+              >
+                Booking Request Received! ✅
+              </h2>
+              <p
+                class="text-wanderway-700 text-base sm:text-lg leading-relaxed"
+              >
+                We've received your pedicab tour request and will get back to
+                you within 24 hours with confirmation details.
+              </p>
+            </div>
+          </div>
+
+          <!-- What's Next Section -->
+          <div
+            class="animate-fade-in"
+            style="animation-delay: 0.8s; animation-fill-mode: both"
+          >
+            <div
+              class="bg-gradient-to-r from-wanderway-50 to-wanderway-100 rounded-2xl p-6 mb-8"
+            >
+              <h3
+                class="text-lg font-semibold text-wanderway-800 mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                What happens next?
+              </h3>
+              <div class="space-y-3 text-sm sm:text-base text-wanderway-700">
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-6 h-6 bg-wanderway-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                  >
+                    1
+                  </div>
+                  <p>Check your email for booking confirmation</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-6 h-6 bg-wanderway-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                  >
+                    2
+                  </div>
+                  <p>We'll contact you to finalize tour details</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-6 h-6 bg-wanderway-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                  >
+                    3
+                  </div>
+                  <p>Get ready for an amazing Central Park experience! 🚲</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div
+            class="animate-fade-in"
+            style="animation-delay: 1s; animation-fill-mode: both"
+          >
+            <div class="bg-white/50 rounded-2xl p-4 mb-8">
+              <p class="text-wanderway-600 text-sm sm:text-base">
+                Questions? Call us at
+                <a
+                  href="tel:+12137095924"
+                  class="font-semibold text-wanderway-700 hover:text-wanderway-800 transition-colors duration-200"
+                >
+                  +1 (213) 709-5924
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div
+            class="animate-fade-in"
+            style="animation-delay: 1.2s; animation-fill-mode: both"
+          >
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/"
+                class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-wanderway-600 to-wanderway-700 text-white font-semibold rounded-xl hover:from-wanderway-700 hover:to-wanderway-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                Back to Home
+              </a>
+              <a
+                href="/#tours"
+                class="inline-flex items-center justify-center px-6 py-3 bg-white text-wanderway-700 font-semibold rounded-xl border-2 border-wanderway-200 hover:border-wanderway-300 hover:bg-wanderway-50 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  ></path>
+                </svg>
+                Browse Tours
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div
+          class="mt-8 text-center animate-fade-in"
+          style="animation-delay: 1.4s; animation-fill-mode: both"
+        >
+          <div
+            class="flex items-center justify-center space-x-2 text-wanderway-400"
+          >
+            <div
+              class="w-2 h-2 bg-wanderway-400 rounded-full animate-pulse"
+            ></div>
+            <div
+              class="w-2 h-2 bg-wanderway-400 rounded-full animate-pulse"
+              style="animation-delay: 0.2s"
+            ></div>
+            <div
+              class="w-2 h-2 bg-wanderway-400 rounded-full animate-pulse"
+              style="animation-delay: 0.4s"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for additional animations -->
+    <script>
+      // Add staggered animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add entrance animation to the main card
+        const card = document.querySelector(".animate-slide-up");
+        card.style.transform = "translateY(30px)";
+        card.style.opacity = "0";
+
+        setTimeout(() => {
+          card.style.transition = "all 0.6s ease-out";
+          card.style.transform = "translateY(0)";
+          card.style.opacity = "1";
+        }, 100);
+
+        // Add hover effects to buttons
+        const buttons = document.querySelectorAll('a[class*="transform"]');
+        buttons.forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            this.style.transform = "scale(1.05) translateY(-2px)";
+          });
+
+          button.addEventListener("mouseleave", function () {
+            this.style.transform = "scale(1) translateY(0)";
+          });
+        });
+
+        // Auto-redirect after 30 seconds (optional)
+        // setTimeout(() => {
+        //   window.location.href = '/';
+        // }, 30000);
+      });
+    </script>
+
     <style>
-      :root {
-        --primary: #006400;
-        --secondary: #f4f4f4;
-        --accent: #ffffff;
-        --text: #222;
+      .animation-delay-2000 {
+        animation-delay: 2s;
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Inter", sans-serif;
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar {
+        width: 8px;
       }
 
-      body {
-        background-color: var(--secondary);
-        color: var(--text);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        padding: 20px;
-        text-align: center;
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
       }
 
-      .logo {
-        max-width: 120px;
-        margin-bottom: 30px;
+      ::-webkit-scrollbar-thumb {
+        background: #16a34a;
+        border-radius: 4px;
       }
 
-      h1 {
-        font-size: 2.5rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-      }
-
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-      }
-      .thankYou {
-        background-color: rgb(220, 219, 219);
-        border-radius: 25px;
-        padding: 50px;
-      }
-      .button {
-        padding: 1rem 2rem;
-        background-color: var(--primary);
-        color: var(--accent);
-        font-size: 1rem;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .button:hover {
-        background-color: #004b00;
-      }
-
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 2rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #15803d;
       }
     </style>
-  </head>
-  <body>
-    <!-- Start coding for the thank you Page -->
-    <div class="thankYou">
-      <img
-        src="./img/logotype%20first%20try.svg"
-        alt="WanderWay Logo"
-        class="logo"
-      />
-      <h1>Thank You!</h1>
-      <p>
-        We received your request. We'll get in touch with you as soon as
-        possible.
-      </p>
-      <a href="index.html#tours" class="button">Back to Tours</a>
-    </div>
-    <!-- Start coding for the thank you Page -->
   </body>
 </html>

@@ -1072,9 +1072,23 @@ body {
 
 /* For external SVG/PNG brand logos */
 .payment-icon-img {
-  height: 20px;
+  height: 24px;
   width: auto;
+  max-width: 60px;
   display: block;
+  object-fit: contain;
+}
+
+/* For inline SVG icons */
+.payment-method svg.payment-icon-img {
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+}
+
+/* Ensure external SVG icons from CDN are properly sized and colored */
+.payment-method img.payment-icon-img {
+  filter: brightness(0.8) contrast(1.1);
 }
 
 .payment-label {

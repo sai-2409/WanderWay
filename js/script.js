@@ -319,6 +319,62 @@ function hideEmailError() {
   emailInput.classList.add("valid");
 }
 
+// Guest validation functions
+function validateGuests(guests) {
+  const numGuests = parseInt(guests);
+  return !isNaN(numGuests) && numGuests >= 1 && numGuests <= 10;
+}
+
+function showGuestsError(message) {
+  const errorDiv = document.getElementById("guestsError");
+  const guestsInput = document.getElementById("guestsInput");
+
+  errorDiv.textContent = message;
+  errorDiv.style.display = "block";
+  guestsInput.classList.add("error");
+  guestsInput.classList.remove("valid");
+}
+
+function hideGuestsError() {
+  const errorDiv = document.getElementById("guestsError");
+  const guestsInput = document.getElementById("guestsInput");
+
+  errorDiv.style.display = "none";
+  guestsInput.classList.remove("error");
+  guestsInput.classList.add("valid");
+}
+
+function checkGuestsValidation() {
+  const guestsInput = document.getElementById("guestsInput");
+  const guests = guestsInput.value.trim();
+
+  if (guests === "") {
+    hideGuestsError();
+    guestsInput.classList.remove("valid", "error");
+    return true; // Let HTML5 required attribute handle empty validation
+  }
+
+  const numGuests = parseInt(guests);
+
+  if (isNaN(numGuests)) {
+    showGuestsError("Please enter a valid number");
+    return false;
+  }
+
+  if (numGuests < 1) {
+    showGuestsError("Number of guests must be at least 1");
+    return false;
+  }
+
+  if (numGuests > 10) {
+    showGuestsError("Maximum 10 guests allowed per tour");
+    return false;
+  }
+
+  hideGuestsError();
+  return true;
+}
+
 function checkEmailValidation() {
   const emailInput = document.getElementById("emailInput");
   const email = emailInput.value.trim();
@@ -343,6 +399,7 @@ function checkEmailValidation() {
 // Add event listeners when the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("emailInput");
+  const guestsInput = document.getElementById("guestsInput");
   const form = document.querySelector(".form__container");
 
   if (emailInput) {
@@ -357,14 +414,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  if (guestsInput) {
+    // Real-time validation on input
+    guestsInput.addEventListener("input", function () {
+      checkGuestsValidation();
+    });
+
+    // Validation on blur (when user leaves the field)
+    guestsInput.addEventListener("blur", function () {
+      checkGuestsValidation();
+    });
+  }
+
   if (form) {
-    // Prevent form submission if email is invalid
+    // Prevent form submission if validation fails
     form.addEventListener("submit", function (e) {
-      if (!checkEmailValidation()) {
+      console.log("Form submission attempted");
+
+      const emailValid = checkEmailValidation();
+      const guestsValid = checkGuestsValidation();
+
+      if (!emailValid) {
+        console.log("Email validation failed - preventing submission");
         e.preventDefault();
         emailInput.focus();
         return false;
       }
+
+      if (!guestsValid) {
+        console.log("Guests validation failed - preventing submission");
+        e.preventDefault();
+        guestsInput.focus();
+        return false;
+      }
+
+      console.log("All validations passed - allowing form submission");
+      // Form will submit normally to /api/book
     });
   }
 });

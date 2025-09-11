@@ -3,8 +3,12 @@ const path = require("path");
 require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
 const sgClient = require("@sendgrid/client");
+const emailTemplates = require("./email-templates");
 
 const app = express();
+
+// Store scheduled reminders (in production, use a database)
+const scheduledReminders = new Map();
 const PORT = process.env.PORT || 3000;
 
 // Configure SendGrid
@@ -43,65 +47,72 @@ app.get("/thankYou.html", (req, res) => {
   res.sendFile(path.join(__dirname, "thankYou.html"));
 });
 
-// Booking submission endpoint
+// Booking submission endpoint with beautiful Tailwind email templates
 app.post("/api/book", async (req, res) => {
   try {
     // Extract fields (support both pretty names and camelCase)
     const fullName = req.body["Full Name"] || req.body.fullName || "Guest";
     const email = req.body["Email Address"] || req.body.email || "";
     const tourType = req.body["Tour Type"] || req.body.tourType || "";
-    const guests = req.body["Number"] || req.body.guests || "";
+    const guests =
+      req.body["Number of Guests"] ||
+      req.body["Number"] ||
+      req.body.guests ||
+      "1";
     const date = req.body["Tour Date"] || req.body.date || "";
     const time = req.body["Tour Time"] || req.body.time || "";
-    const notes = req.body["Special Requests"] || req.body.notes || "";
+    const specialRequests =
+      req.body["Special Requests"] || req.body.notes || "";
 
-    // Compose HTML summary
-    const html = `
-      <div style="font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;">
-        <h2 style="margin:0 0 12px;color:#0a5c0a">New Pedicab Booking</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email || "(not provided)"}</p>
-        <p><strong>Tour:</strong> ${tourType}</p>
-        <p><strong>Guests:</strong> ${guests}</p>
-        <p><strong>Date:</strong> ${date} &nbsp; <strong>Time:</strong> ${time}</p>
-        <p><strong>Notes:</strong> ${notes || "—"}</p>
-      </div>`;
+    // Create booking data object
+    const bookingData = {
+      name: fullName,
+      email: email,
+      tourType: tourType,
+      guests: guests,
+      date: date,
+      time: time,
+      specialRequests: specialRequests,
+    };
+
+    console.log(`📧 New booking received from ${fullName} for ${tourType}`);
 
     const businessTo = process.env.SENDGRID_TO || "pedicap475@gmail.com";
-    const from = process.env.SENDGRID_FROM || businessTo; // must be a verified sender on SendGrid
-
+    const from = process.env.SENDGRID_FROM || businessTo;
     const sandbox = process.env.SENDGRID_SANDBOX === "1";
+
     if (!SG_KEY) {
       console.warn("[WARN] No SendGrid key configured. Skipping email send.");
     } else {
-      // Send to business inbox
+      // 1. Send beautiful business notification email (RED theme)
+      const businessHtml = emailTemplates.business(bookingData);
       await sgMail.send({
         to: businessTo,
         from,
         replyTo: email || from,
-        subject: "New WanderWay Booking Request",
-        html,
+        subject: `🚨 New WanderWay Booking: ${tourType} - ${fullName}`,
+        html: businessHtml,
         mailSettings: sandbox ? { sandboxMode: { enable: true } } : undefined,
       });
+      console.log(`✅ Business notification sent to ${businessTo}`);
 
-      // Optional confirmation to the customer if email provided
+      // 2. Send beautiful customer confirmation email (GREEN theme)
       if (email) {
+        const customerHtml = emailTemplates.customer(bookingData);
         await sgMail.send({
           to: email,
           from,
-          subject: "We received your WanderWay booking",
-          html: `<div style="font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;">
-                   <p>Hi ${fullName},</p>
-                   <p>Thanks for booking a WanderWay Pedicab tour! We received your request and will confirm details shortly.</p>
-                   <p><strong>Your selection:</strong> ${
-                     tourType || "(not specified)"
-                   } • ${guests || "?"} guest(s) • ${date || "?"} at ${
-            time || "?"
-          }</p>
-                   <p>We look forward to touring Central Park with you! 🌳🚲</p>
-                 </div>`,
+          subject:
+            "🚲 WanderWay Booking Confirmed - Central Park Adventure Awaits!",
+          html: customerHtml,
           mailSettings: sandbox ? { sandboxMode: { enable: true } } : undefined,
         });
+        console.log(`✅ Customer confirmation sent to ${email}`);
+
+        // 3. Schedule reminder email for 1 hour before tour (if date/time provided)
+        if (date && time) {
+          scheduleReminderEmail(bookingData, from, sandbox);
+        }
       }
     }
 
@@ -117,6 +128,61 @@ app.post("/api/book", async (req, res) => {
       );
   }
 });
+
+// Function to schedule reminder email 1 hour before tour
+function scheduleReminderEmail(bookingData, fromEmail, sandbox) {
+  try {
+    // Parse the tour date and time
+    const tourDateTime = new Date(`${bookingData.date} ${bookingData.time}`);
+    const reminderTime = new Date(tourDateTime.getTime() - 60 * 60 * 1000); // 1 hour before
+    const now = new Date();
+
+    if (reminderTime > now) {
+      const delay = reminderTime.getTime() - now.getTime();
+
+      console.log(
+        `⏰ Scheduling reminder email for ${
+          bookingData.name
+        } at ${reminderTime.toLocaleString()}`
+      );
+
+      const timeoutId = setTimeout(async () => {
+        try {
+          const reminderHtml = emailTemplates.reminder(bookingData);
+          await sgMail.send({
+            to: bookingData.email,
+            from: fromEmail,
+            subject: `⏰ Reminder: Your WanderWay Tour Starts in 1 Hour!`,
+            html: reminderHtml,
+            mailSettings: sandbox
+              ? { sandboxMode: { enable: true } }
+              : undefined,
+          });
+          console.log(`✅ Reminder email sent to ${bookingData.email}`);
+
+          // Remove from scheduled reminders
+          scheduledReminders.delete(
+            bookingData.email + bookingData.date + bookingData.time
+          );
+        } catch (error) {
+          console.error(`❌ Failed to send reminder email:`, error);
+        }
+      }, delay);
+
+      // Store the timeout ID so we can cancel if needed
+      scheduledReminders.set(
+        bookingData.email + bookingData.date + bookingData.time,
+        timeoutId
+      );
+    } else {
+      console.log(
+        `⚠️ Tour time is in the past, skipping reminder for ${bookingData.name}`
+      );
+    }
+  } catch (error) {
+    console.error(`❌ Error scheduling reminder:`, error);
+  }
+}
 
 // Simple health/test route to verify SendGrid config without using the form
 app.get("/api/test-email", async (req, res) => {
@@ -139,6 +205,51 @@ app.get("/api/test-email", async (req, res) => {
     console.error("/api/test-email error:", err?.response?.body || err);
     res.status(500).send("Failed to send test email");
   }
+});
+
+// Admin endpoint to view scheduled reminders
+app.get("/api/admin/reminders", (req, res) => {
+  const reminders = Array.from(scheduledReminders.keys()).map((key) => {
+    return {
+      key,
+      scheduled: true,
+      count: scheduledReminders.size,
+    };
+  });
+
+  res.json({
+    total: scheduledReminders.size,
+    reminders: reminders,
+  });
+});
+
+// Test endpoint for email templates
+app.get("/api/test-templates", (req, res) => {
+  const testData = {
+    name: "John Doe",
+    email: "test@example.com",
+    tourType: "Central Park Highlights Tour",
+    guests: "2",
+    date: "2025-09-15",
+    time: "2:00 PM",
+    specialRequests: "Please bring extra blankets, it might be chilly!",
+  };
+
+  const templates = {
+    customer: emailTemplates.customer(testData),
+    business: emailTemplates.business(testData),
+    reminder: emailTemplates.reminder(testData),
+  };
+
+  res.json({
+    message: "Email templates generated successfully",
+    testData,
+    templates: {
+      customer: templates.customer.substring(0, 200) + "...",
+      business: templates.business.substring(0, 200) + "...",
+      reminder: templates.reminder.substring(0, 200) + "...",
+    },
+  });
 });
 
 // Handle any other routes by redirecting to home

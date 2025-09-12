@@ -50,6 +50,13 @@ app.get("/thankYou.html", (req, res) => {
 // Booking submission endpoint with beautiful Tailwind email templates
 app.post("/api/book", async (req, res) => {
   try {
+    // Debug logging for production
+    console.log("📝 Form submission received");
+    console.log("🔧 Environment check:", {
+      hasApiKey: !!SG_KEY,
+      fromEmail: process.env.SENDGRID_FROM,
+      toEmail: process.env.SENDGRID_TO
+    });
     // Extract fields (support both pretty names and camelCase)
     const fullName = req.body["Full Name"] || req.body.fullName || "Guest";
     const email = req.body["Email Address"] || req.body.email || "";
@@ -120,12 +127,15 @@ app.post("/api/book", async (req, res) => {
     const nextUrl = req.body._next || "/thankYou.html";
     return res.redirect(303, nextUrl);
   } catch (err) {
-    console.error("SendGrid error:", err?.response?.body || err);
-    return res
-      .status(500)
-      .send(
-        "Sorry, something went wrong sending your booking. Please try again."
-      );
+    console.error("❌ Booking submission error:", err);
+    console.error("📧 SendGrid details:", err?.response?.body || err);
+    
+    // Return JSON error for better debugging
+    return res.status(500).json({
+      error: "Booking submission failed",
+      message: err.message,
+      details: err?.response?.body || "Unknown error"
+    });
   }
 });
 
@@ -183,6 +193,20 @@ function scheduleReminderEmail(bookingData, fromEmail, sandbox) {
     console.error(`❌ Error scheduling reminder:`, error);
   }
 }
+
+// Debug endpoint for production troubleshooting
+app.get("/api/debug", (req, res) => {
+  res.json({
+    status: "Server running",
+    environment: process.env.NODE_ENV || "development",
+    hasApiKey: !!process.env.SENDGRID_API_KEY_WANDERWAY,
+    hasLegacyApiKey: !!process.env.SENDGRID_API_KEY,
+    fromEmail: process.env.SENDGRID_FROM || "not set",
+    toEmail: process.env.SENDGRID_TO || "not set",
+    timestamp: new Date().toISOString(),
+    __dirname: __dirname
+  });
+});
 
 // Simple health/test route to verify SendGrid config without using the form
 app.get("/api/test-email", async (req, res) => {

@@ -55,7 +55,7 @@ app.post("/api/book", async (req, res) => {
     console.log("🔧 Environment check:", {
       hasApiKey: !!SG_KEY,
       fromEmail: process.env.SENDGRID_FROM,
-      toEmail: process.env.SENDGRID_TO
+      toEmail: process.env.SENDGRID_TO,
     });
     // Extract fields (support both pretty names and camelCase)
     const fullName = req.body["Full Name"] || req.body.fullName || "Guest";
@@ -129,12 +129,12 @@ app.post("/api/book", async (req, res) => {
   } catch (err) {
     console.error("❌ Booking submission error:", err);
     console.error("📧 SendGrid details:", err?.response?.body || err);
-    
+
     // Return JSON error for better debugging
     return res.status(500).json({
       error: "Booking submission failed",
       message: err.message,
-      details: err?.response?.body || "Unknown error"
+      details: err?.response?.body || "Unknown error",
     });
   }
 });
@@ -204,7 +204,7 @@ app.get("/api/debug", (req, res) => {
     fromEmail: process.env.SENDGRID_FROM || "not set",
     toEmail: process.env.SENDGRID_TO || "not set",
     timestamp: new Date().toISOString(),
-    __dirname: __dirname
+    __dirname: __dirname,
   });
 });
 

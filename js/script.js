@@ -187,17 +187,8 @@ document.getElementById("loadMoreBtn").addEventListener("click", () => {
 renderReview(reviews[reviewIndex++]);
 renderReview(reviews[reviewIndex++]);
 
-// Coding for the submitting request for the forms
-document
-  .querySelector(".form__container")
-  .addEventListener("submit", function (e) {
-    // e.preventDefault();
-    setTimeout(() => {
-      alert(
-        "We have received your information! We will contact with you as soon as possible."
-      );
-    }, 1000); // Let the form submit first
-  });
+// Form submission is handled by the server - no modal needed
+// The form will redirect to thankYou.html after successful submission
 
 // const div = document.createElement("div");
 // div.innerHTML = `

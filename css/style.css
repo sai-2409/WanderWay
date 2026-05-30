@@ -22,6 +22,8 @@ h1 {
   --text: #222;
   --gray: #777;
   --light__green: #d2f5d2;
+  /* Hero caption + image frame (darker green, same tone) */
+  --hero-frame-bg: #2d5c1e;
 }
 .sticky {
   position: fixed;
@@ -118,37 +120,70 @@ body {
   opacity: 0.6;
 }
 
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+.hero {
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.1));
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
-  padding: 20px;
+  flex-direction: column;
 }
-.hero__video-container {
+
+.hero__media {
   position: relative;
-  height: 100vh;
+  width: 100%;
+  height: 82vh;
+  min-height: 380px;
+  max-height: 900px;
   overflow: hidden;
+  background-color: var(--hero-frame-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.75rem 2rem;
+  box-sizing: border-box;
 }
+
+.hero__caption {
+  width: 100%;
+  background-color: var(--hero-frame-bg);
+  padding: 2.5rem 24px 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
 .hero__content {
   color: #fff;
   animation: fadeInHero 1.5s ease-in;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero__headline {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
+  line-height: 1.2;
 }
+
+.hero__bg-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Legacy alias if video is re-added */
+.hero__video-container {
+  position: relative;
+  width: 100%;
+  height: 82vh;
+  min-height: 380px;
+  max-height: 900px;
+  overflow: hidden;
+  background-color: var(--hero-frame-bg);
+}
+
 .hero__video {
   position: absolute;
   top: 50%;
@@ -160,7 +195,6 @@ body {
   z-index: 1;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  transition: opacity 0.3s ease;
 }
 
 /* Support for iframe videos (YouTube/Vimeo) */
@@ -175,34 +209,10 @@ body {
   min-height: auto;
 }
 
-/* Video loading state */
-.hero__video:not([src]) {
-  opacity: 0;
-}
-
-/* Fallback styles when video fails to load */
-.hero__video-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/central__park-main-b.jpg.avif");
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-/* Ensure video appears above fallback background */
-.hero__video[src] {
-  z-index: 1;
-}
-
 .hero__sub {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  color: #f4f4f4;
+  color: #e8f5e8;
 }
 
 .hero__button {
@@ -219,17 +229,6 @@ body {
 .hero__button:hover {
   background-color: #007a3d;
   transform: scale(1.05);
-}
-.hero {
-  /* background: url('../img/central__park-main-b.jpg.avif') center/cover no-repeat; */
-  /* background-size: cover; */
-  color: white;
-  overflow: hidden;
-
-  position: relative;
-  width: 100%;
-  height: auto;
-  /* padding: 120px 20px; */
 }
 .hero__main-bg {
   height: 70%;
@@ -478,56 +477,149 @@ body {
   transition: opacity 1s ease-in-out;
   border-radius: 16px;
 } */
+.carousel {
+  width: 100%;
+  max-width: 960px;
+  margin: 2.5rem auto 0;
+}
+
 .carousel__container {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 900px;
-  margin: 2rem auto;
-  border-radius: 16px;
+  border-radius: 20px;
+  background: #0a3d0a;
+  box-shadow:
+    0 4px 6px rgba(0, 60, 0, 0.06),
+    0 20px 48px rgba(0, 80, 0, 0.18);
+  aspect-ratio: 16 / 10;
 }
 
 .carousel__track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel__item {
-  min-width: 100%;
-  transition: transform 0.5s ease-in-out;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.carousel__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  pointer-events: none;
 }
 
 .carousel__item img {
   width: 100%;
-  height: 500px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  display: block;
 }
 
 .carousel__btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.92);
+  color: #006400;
   border: none;
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  z-index: 2;
-  border-radius: 10px;
-}
-
-.carousel__btn--prev {
-  left: 10px;
-}
-
-.carousel__btn--next {
-  right: 10px;
+  z-index: 3;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .carousel__btn:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 100, 0, 0.25);
+}
+
+.carousel__btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel__btn--prev {
+  left: 1rem;
+}
+
+.carousel__btn--next {
+  right: 1rem;
+}
+
+.carousel__counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 3;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.carousel__counter-sep {
+  opacity: 0.65;
+  margin: 0 0.15rem;
+}
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cfe9cf;
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.carousel__dot:hover {
+  background: #7bc67b;
+  transform: scale(1.15);
+}
+
+.carousel__dot.is-active {
+  width: 1.75rem;
+  border-radius: 999px;
+  background: #006400;
 }
 
 .tours {
@@ -546,9 +638,12 @@ body {
 }
 .tour__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
   margin-top: 40px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* Improved styles for tour cards */
 .tour__card {
@@ -583,13 +678,102 @@ body {
   opacity: 1;
 }
 
-.tour__card img {
+.tour__card-media {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
+  height: 440px;
   margin-bottom: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 2px solid #cfe9cf;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(0, 100, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.tour__card-media img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 8px;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+/* Tour card lightbox */
+.tour-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.tour-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.tour-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.tour-modal__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  cursor: default;
+}
+
+.tour-modal__hint {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tour-modal .tour__card--expanded {
+  margin: 0;
+  transform: none;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.tour-modal .tour__card--expanded:hover {
+  transform: none;
+}
+
+.tour-modal .tour__card--expanded .tour__card-media {
+  height: min(72vh, 640px);
+  cursor: default;
+}
+
+body.tour-modal-open {
+  overflow: hidden;
 }
 
 .tour__card h3 {
@@ -602,6 +786,43 @@ body {
 .tour__card-price {
   font-size: 1rem;
   color: #222;
+}
+
+.tour__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.5rem auto 0.75rem;
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  background: #eef9ee;
+  border: 1px solid #cfe9cf;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 100, 0, 0.08);
+  max-width: 100%;
+  text-align: left;
+}
+
+.tour__note-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #006400;
+  color: #fff;
+}
+
+.tour__note-icon svg {
+  display: block;
+}
+
+.tour__note-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #006400;
+  line-height: 1.35;
 }
 
 .tour__card-price span {
@@ -1175,7 +1396,7 @@ body {
 .tour__Date {
   text-align: start;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 0.25rem;
   position: relative;
 }
 /* Optimizing for medium screens */
@@ -1234,17 +1455,6 @@ select.form__input:focus {
   box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.1);
 }
 
-.form__date::-webkit-calendar-picker-indicator {
-  filter: invert(29%) sepia(94%) saturate(457%) hue-rotate(87deg)
-    brightness(90%) contrast(90%);
-  cursor: pointer;
-}
-.tour__Date {
-  text-align: start;
-  margin-bottom: 0;
-  margin-top: 20px;
-  color: #ccc;
-}
 .form__textarea {
   height: 100px;
   resize: vertical;
@@ -1414,9 +1624,9 @@ select.form__input:focus {
     font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .tour__card img {
-    height: 250px;
-    width: 300px;
+  .tour__card-media {
+    height: 400px;
+    padding: 8px;
   }
   .tour__card h3 {
     font-size: 1.3rem;
@@ -1519,6 +1729,34 @@ select.form__input:focus {
   .intro__text {
     font-size: 1rem;
   }
+
+  .carousel {
+    margin-top: 1.75rem;
+  }
+
+  .carousel__container {
+    border-radius: 14px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .carousel__btn {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .carousel__btn--prev {
+    left: 0.5rem;
+  }
+
+  .carousel__btn--next {
+    right: 0.5rem;
+  }
+
+  .carousel__counter {
+    bottom: 0.65rem;
+    right: 0.65rem;
+    font-size: 0.75rem;
+  }
   /* .top__bar-right img {
     width: 32px;
     height: 32px;
@@ -1578,13 +1816,28 @@ select.form__input:focus {
   }
 
   /* Mobile video optimizations */
+  .hero__media,
   .hero__video-container {
-    height: 60vh; /* Shorter on mobile */
+    height: 65vh;
+    min-height: 300px;
+  }
+
+  .hero__media {
+    padding: 1.25rem 1.5rem 1.75rem;
+  }
+
+  .hero__bg-image {
+    width: 100%;
+    height: 100%;
+    object-position: center center;
   }
 
   .hero__video {
-    /* Ensure video covers properly on mobile */
     object-position: center center;
+  }
+
+  .hero__caption {
+    padding: 2rem 16px 2.5rem;
   }
 
   .hero__headline {

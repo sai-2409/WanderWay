@@ -1,0 +1,455 @@
+/* Shared booking + thank-you page styles */
+
+.booking-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: linear-gradient(160deg, #f0fff0 0%, #f4f4f4 45%, #ffffff 100%);
+  font-family: "Inter", sans-serif;
+}
+
+.booking-page__card {
+  width: 100%;
+  max-width: 32rem;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 100, 0, 0.12);
+  border: 1px solid #cfe9cf;
+}
+
+.booking-page__icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #006400, #004d00);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.booking-page__logo {
+  height: 3.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.booking-page__title {
+  font-size: 2rem;
+  color: #004d00;
+  margin-bottom: 0.75rem;
+}
+
+.booking-page__message {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.booking-page__steps {
+  text-align: left;
+  background: #f8fff8;
+  border: 1px solid #cfe9cf;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.booking-page__steps h3 {
+  color: #004d00;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.booking-page__steps ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #444;
+}
+
+.booking-page__steps li {
+  margin-bottom: 0.5rem;
+}
+
+.booking-page__contact {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.booking-page__contact a {
+  color: #006400;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.booking-page__contact a:hover {
+  text-decoration: underline;
+}
+
+.booking-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.booking-page__btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.booking-page__btn--primary {
+  background: #006400;
+  color: #fff;
+}
+
+.booking-page__btn--primary:hover {
+  background: #004d00;
+}
+
+.booking-page__btn--secondary {
+  background: #fff;
+  color: #006400;
+  border: 2px solid #cfe9cf;
+}
+
+.booking-page__btn--secondary:hover {
+  background: #f0fff0;
+}
+
+/* Form status banner */
+.form__status {
+  display: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.form__status--error {
+  display: block;
+  color: #b71c1c;
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+}
+
+.form__status--success {
+  display: block;
+  color: #1b5e20;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+}
+
+.form__status--info {
+  display: block;
+  color: #004d00;
+  background: #f0fff0;
+  border: 1px solid #cfe9cf;
+}
+
+.form__button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form__button.is-loading {
+  position: relative;
+}
+
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form__helper {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: left;
+  margin-top: -0.25rem;
+}
+
+/* ——— Custom date picker ——— */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form__label.tour__Date {
+  display: block;
+  text-align: left;
+  margin-top: 0.25rem;
+  margin-bottom: -0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #004d00;
+}
+
+.date-picker {
+  position: relative;
+  width: 100%;
+}
+
+.date-picker__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: #f8fff8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.date-picker__trigger:hover {
+  border-color: #9ed49e;
+  background-color: #ffffff;
+}
+
+.date-picker__trigger--filled .date-picker__text--value {
+  color: #222;
+  font-weight: 500;
+}
+
+.date-picker__text--placeholder {
+  color: #888;
+}
+
+.date-picker__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e8f5e9, #f0fff0);
+  color: #006400;
+}
+
+.date-picker--open .date-picker__trigger {
+  border-color: #006400;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.12);
+}
+
+.date-picker__popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1.5px solid #cfe9cf;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 77, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
+  animation: datePickerIn 0.2s ease;
+}
+
+@keyframes datePickerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.date-picker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  gap: 0.5rem;
+}
+
+.date-picker__month {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #004d00;
+  letter-spacing: 0.02em;
+}
+
+.date-picker__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: #f0fff0;
+  color: #006400;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.date-picker__nav:hover {
+  background: #006400;
+  color: #ffffff;
+}
+
+.date-picker__nav:active {
+  transform: scale(0.96);
+}
+
+.date-picker__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 0.35rem;
+}
+
+.date-picker__weekdays span {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #6b8f6b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0;
+}
+
+.date-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.date-picker__day {
+  aspect-ratio: 1;
+  min-height: 2.25rem;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.date-picker__day:hover:not(:disabled):not(.date-picker__day--selected) {
+  background: #e8f5e9;
+  color: #004d00;
+}
+
+.date-picker__day--outside {
+  color: #bbb;
+}
+
+.date-picker__day--today:not(.date-picker__day--selected) {
+  font-weight: 700;
+  color: #006400;
+  box-shadow: inset 0 0 0 1.5px #9ed49e;
+}
+
+.date-picker__day--selected {
+  background: linear-gradient(135deg, #006400, #004d00);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 100, 0, 0.35);
+}
+
+.date-picker__day--selected:hover {
+  background: linear-gradient(135deg, #007a00, #006400);
+  color: #ffffff;
+}
+
+.date-picker__day--disabled {
+  color: #d0d0d0;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.date-picker__trigger.error {
+  border-color: #d32f2f;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.date-picker__backdrop {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .date-picker__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .date-picker__popover {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 16px 16px 0 0;
+    border-bottom: none;
+    padding: 1.25rem 1rem 1.5rem;
+    box-shadow: 0 -8px 32px rgba(0, 77, 0, 0.18);
+    animation: datePickerSheet 0.25s ease;
+  }
+
+  @keyframes datePickerSheet {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+}
+
+@media (max-width: 480px) {
+  .booking-page__card {
+    padding: 2rem 1.25rem;
+  }
+
+  .booking-page__title {
+    font-size: 1.6rem;
+  }
+}

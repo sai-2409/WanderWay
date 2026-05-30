@@ -27,80 +27,104 @@ hamburger.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-// Video background functionality
+// Hero background: optional video (use .hero__video + MP4/WebM sources)
 document.addEventListener("DOMContentLoaded", () => {
   const heroVideo = document.querySelector(".hero__video");
+  if (!heroVideo) return;
 
-  if (heroVideo) {
-    // Debug: Log video element
-    console.log("Video element found:", heroVideo);
+  heroVideo.play().catch(() => {
+    heroVideo.style.display = "none";
+  });
+});
 
-    // Check if video sources are loading
-    heroVideo.addEventListener("loadstart", () => {
-      console.log("Video started loading");
-    });
+// Intro carousel
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("carouselTrack");
+  const container = document.querySelector(".carousel__container");
+  const prevBtn = document.querySelector(".carousel__btn--prev");
+  const nextBtn = document.querySelector(".carousel__btn--next");
+  const dotsContainer = document.getElementById("carouselDots");
+  const currentEl = document.getElementById("carouselCurrent");
+  const totalEl = document.getElementById("carouselTotal");
 
-    heroVideo.addEventListener("loadeddata", () => {
-      console.log("Video data loaded successfully");
-    });
+  if (!track || !container || !prevBtn || !nextBtn) return;
 
-    heroVideo.addEventListener("error", (e) => {
-      console.error("Video error:", e);
-      console.log("Video src:", heroVideo.currentSrc);
-    });
+  const slides = track.querySelectorAll(":scope > .carousel__item");
+  const totalSlides = slides.length;
+  if (totalSlides === 0) return;
 
-    heroVideo.addEventListener("canplay", () => {
-      console.log("Video can start playing");
-    });
+  let currentIndex = 0;
+  let autoSlideTimer = null;
 
-    // Ensure video plays on mobile devices
-    heroVideo.play().catch((error) => {
-      console.log("Video autoplay failed:", error);
-      // Fallback: show poster image if video fails to play
-    });
+  if (totalEl) totalEl.textContent = String(totalSlides);
 
-    // Optional: Add video controls on hover/click for better UX
-    heroVideo.addEventListener("click", () => {
-      if (heroVideo.paused) {
-        heroVideo.play();
-      } else {
-        heroVideo.pause();
-      }
-    });
-  } else {
-    console.error("Video element not found!");
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel__dot" + (i === 0 ? " is-active" : "");
+      dot.setAttribute("aria-label", `Go to photo ${i + 1}`);
+      dot.addEventListener("click", () => {
+        goToSlide(i);
+        startAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
   }
-});
 
-// Writing JS code for the carusoul
-const track = document.getElementById("carouselTrack");
-const prevBtn = document.querySelector(".carousel__btn--prev");
-const nextBtn = document.querySelector(".carousel__btn--next");
+  function updateUI() {
+    if (currentEl) currentEl.textContent = String(currentIndex + 1);
+    if (dotsContainer) {
+      dotsContainer.querySelectorAll(".carousel__dot").forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === currentIndex);
+      });
+    }
+  }
 
-let currentIndex = 0;
-const slides = document.querySelectorAll(".carousel__item");
-const totalSlides = slides.length;
+  function updateCarousel() {
+    const slideWidth = container.offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    updateUI();
+  }
 
-function updateCarousel() {
-  const slideWidth = slides[0].clientWidth;
-  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
+  function goToSlide(index) {
+    currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+    updateCarousel();
+  }
 
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % totalSlides;
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 6000);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+  }
+
+  nextBtn.addEventListener("click", () => {
+    goToSlide(currentIndex + 1);
+    startAutoSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    goToSlide(currentIndex - 1);
+    startAutoSlide();
+  });
+
+  window.addEventListener("resize", updateCarousel);
+
+  container.addEventListener("mouseenter", stopAutoSlide);
+  container.addEventListener("mouseleave", startAutoSlide);
+
   updateCarousel();
+  startAutoSlide();
 });
-
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-  updateCarousel();
-});
-
-// Optional: Auto-slide every 6 seconds
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % totalSlides;
-  updateCarousel();
-}, 6000);
 
 // Basic script for Pedicap
 document.addEventListener("DOMContentLoaded", function () {
@@ -195,15 +219,12 @@ renderReview(reviews[reviewIndex++]);
 // <div>We have recieved your information, and we'll contact you as soon as possible !</div>
 // `;
 
-// Writing code for the TourButton
-const tourButton = document.querySelectorAll(".tour__card-button");
-const contactSection = document.getElementById("contact");
-
-tourButton.forEach((element) => {
-  element.addEventListener("click", function () {
+function scrollToBookingSection() {
+  const contactSection = document.getElementById("contact");
+  if (contactSection) {
     contactSection.scrollIntoView({ behavior: "smooth" });
-  });
-});
+  }
+}
 
 // Animating the Roadmap section
 const roadmapImages = document.querySelectorAll(".roadmap__image");
@@ -222,6 +243,86 @@ const imageObserver = new IntersectionObserver(
 );
 
 roadmapImages.forEach((img) => imageObserver.observe(img));
+
+// Tour card image lightbox
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("tourCardModal");
+  const modalInner = modal?.querySelector(".tour-modal__inner");
+
+  function closeTourModal() {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("tour-modal-open");
+    if (modalInner) modalInner.innerHTML = "";
+  }
+
+  function openTourModal(card) {
+    if (!modal || !modalInner) return;
+
+    const clone = card.cloneNode(true);
+    clone.classList.add("tour__card--expanded");
+    clone.removeAttribute("id");
+
+    const title = clone.querySelector("h3");
+    if (title) title.id = "tourModalTitle";
+
+    modalInner.appendChild(clone);
+
+    clone.querySelectorAll(".tour__card-button").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeTourModal();
+        scrollToBookingSection();
+      });
+    });
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("tour-modal-open");
+  }
+
+  document.querySelectorAll(".tour__card-media").forEach((media) => {
+    media.setAttribute("role", "button");
+    media.setAttribute("tabindex", "0");
+    media.setAttribute("aria-label", "View tour details larger");
+
+    const openFromMedia = () => {
+      const card = media.closest(".tour__card");
+      if (card) openTourModal(card);
+    };
+
+    media.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openFromMedia();
+    });
+
+    media.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openFromMedia();
+      }
+    });
+  });
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target.closest(".tour__card-button")) return;
+    closeTourModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("is-open")) {
+      closeTourModal();
+    }
+  });
+});
+
+// Book Now on tour cards (grid, not modal — modal buttons wired when opened)
+document.addEventListener("click", (e) => {
+  const bookBtn = e.target.closest(".tour__card-button");
+  if (!bookBtn || bookBtn.closest("#tourCardModal")) return;
+  scrollToBookingSection();
+});
 
 // Tour Stops Button Functionality
 document.addEventListener("DOMContentLoaded", function () {
@@ -387,11 +488,106 @@ function checkEmailValidation() {
   return true;
 }
 
+function showFormStatus(message, type) {
+  const statusEl = document.getElementById("formStatus");
+  if (!statusEl) return;
+  statusEl.textContent = message;
+  statusEl.className = "form__status form__status--" + type;
+  statusEl.style.display = "block";
+}
+
+function hideFormStatus() {
+  const statusEl = document.getElementById("formStatus");
+  if (!statusEl) return;
+  statusEl.textContent = "";
+  statusEl.className = "form__status";
+  statusEl.style.display = "none";
+}
+
+function setSubmitLoading(isLoading) {
+  const button = document.getElementById("submitButton");
+  if (!button) return;
+  button.disabled = isLoading;
+  button.classList.toggle("is-loading", isLoading);
+  button.textContent = isLoading ? "Sending…" : "Send Request";
+}
+
+async function submitBookingForm(form) {
+  const body = new URLSearchParams(new FormData(form));
+
+  const response = await fetch("/api/book", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    body: body.toString(),
+    redirect: "manual",
+  });
+
+  const contentType = response.headers.get("Content-Type") || "";
+
+  if (response.status >= 300 && response.status < 400) {
+    const location = response.headers.get("Location") || "/thankYou.html";
+    return { response, data: { ok: true, redirect: location } };
+  }
+
+  if (contentType.includes("application/json")) {
+    const data = await response.json();
+    if (data.error && data.ok !== true) {
+      return {
+        response,
+        data: {
+          ok: false,
+          message:
+            data.message ||
+            "We could not send your booking. Please call +1 (929) 645-7024.",
+          code: data.code || "EMAIL_FAILED",
+        },
+      };
+    }
+    return { response, data };
+  }
+
+  const text = (await response.text()).trim().slice(0, 200);
+
+  if (response.status === 405) {
+    return {
+      response,
+      data: {
+        ok: false,
+        message:
+          "Booking server not reachable. Run npm start and open http://localhost:5000 (do not use Live Server / port 5500).",
+      },
+    };
+  }
+
+  return {
+    response,
+    data: {
+      ok: false,
+      message:
+        text ||
+        `Server error (${response.status}). Please call +1 (929) 645-7024.`,
+    },
+  };
+}
+
 // Add event listeners when the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("emailInput");
   const guestsInput = document.getElementById("guestsInput");
-  const form = document.querySelector(".form__container");
+  const form = document.getElementById("bookingForm");
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("booking") === "error") {
+    showFormStatus(
+      "Your last booking could not be completed. Please try again or call +1 (929) 645-7024.",
+      "error"
+    );
+    window.history.replaceState({}, "", window.location.pathname + "#contact");
+  }
 
   if (emailInput) {
     // Real-time validation on input
@@ -418,29 +614,69 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (form) {
-    // Prevent form submission if validation fails
-    form.addEventListener("submit", function (e) {
-      console.log("Form submission attempted");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      hideFormStatus();
 
       const emailValid = checkEmailValidation();
       const guestsValid = checkGuestsValidation();
 
       if (!emailValid) {
-        console.log("Email validation failed - preventing submission");
-        e.preventDefault();
         emailInput.focus();
-        return false;
+        showFormStatus("Please enter a valid email address.", "error");
+        return;
       }
 
       if (!guestsValid) {
-        console.log("Guests validation failed - preventing submission");
-        e.preventDefault();
         guestsInput.focus();
-        return false;
+        showFormStatus("Please enter a valid number of guests (1–10).", "error");
+        return;
       }
 
-      console.log("All validations passed - allowing form submission");
-      // Form will submit normally to /api/book
+      const tourDateInput = document.getElementById("tourDate");
+      const tourDateTrigger = document.getElementById("tourDateTrigger");
+      if (tourDateInput && !tourDateInput.value.trim()) {
+        if (tourDateTrigger) {
+          tourDateTrigger.classList.add("error");
+          tourDateTrigger.focus();
+        }
+        showFormStatus("Please choose a tour date.", "error");
+        return;
+      }
+      if (tourDateTrigger) tourDateTrigger.classList.remove("error");
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      setSubmitLoading(true);
+
+      try {
+        const { data } = await submitBookingForm(form);
+
+        if (data.ok) {
+          if (data.warning) {
+            sessionStorage.setItem("bookingWarning", data.warning);
+          }
+          window.location.href = data.redirect || "/thankYou.html";
+          return;
+        }
+
+        showFormStatus(
+          data.message ||
+            "We could not complete your booking. Please try again or call +1 (929) 645-7024.",
+          "error"
+        );
+      } catch (err) {
+        console.error("Booking submit failed:", err);
+        showFormStatus(
+          "Network error. Check your connection and try again, or call +1 (929) 645-7024.",
+          "error"
+        );
+      } finally {
+        setSubmitLoading(false);
+      }
     });
   }
 });

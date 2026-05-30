@@ -75,7 +75,7 @@ const emailTemplates = {
             
             <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 24px; text-align: center;">
                 <h3 style="color: #1d4ed8; font-size: 18px; font-weight: 600; margin: 0 0 16px 0;">📞 Contact Us</h3>
-                <p style="color: #1e40af; margin: 0 0 4px 0;"><strong>Phone:</strong> +1 (213) 709-5924</p>
+                <p style="color: #1e40af; margin: 0 0 4px 0;"><strong>Phone:</strong> +1 (929) 645-7024</p>
                 <p style="color: #1e40af; margin: 0;"><strong>Email:</strong> wanderway06042025@gmail.com</p>
             </div>
         </div>
@@ -234,7 +234,7 @@ const emailTemplates = {
             
             <div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 24px; text-align: center;">
                 <h3 style="color: #b91c1c; font-size: 18px; font-weight: 600; margin: 0 0 16px 0;">📞 Need to Reach Us?</h3>
-                <p style="color: #991b1b; margin: 0 0 4px 0;"><strong>Phone:</strong> +1 (213) 709-5924</p>
+                <p style="color: #991b1b; margin: 0 0 4px 0;"><strong>Phone:</strong> +1 (929) 645-7024</p>
                 <p style="color: #991b1b; margin: 0 0 12px 0;"><strong>Email:</strong> wanderway06042025@gmail.com</p>
                 <p style="color: #dc2626; font-size: 14px; margin: 0;">Call us if you're running late or have any questions!</p>
             </div>

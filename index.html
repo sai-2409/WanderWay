@@ -20,13 +20,14 @@
     <!-- Connecting the CSS files for the styles -->
     <link rel="stylesheet" href="css/animation.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/booking.css" />
   </head>
   <body>
     <!-- Top bar for the website  -->
     <!-- Top Info Bar -->
     <div class="top__bar">
       <div class="top__bar-left">
-        <span><i class="fas fa-phone-alt"></i>📲 +1 213-709-5924</span>
+        <span><i class="fas fa-phone-alt"></i>📲 +1 (929) 645-7024</span>
         <span>|</span>
         <span
           ><i class="fas fa-envelope"></i>✉️ wanderway06042025@gmail.com</span
@@ -79,28 +80,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="hero__video-container">
-        <video
-          src="./videos/main-video.mp4"
-          class="hero__video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="./img/central__park-main-b.jpg.avif"
-        >
-          <!-- Your MP4 video (convert your MOV to MP4, not WebP!) -->
-          <source src="./videos/main-video.mp4" type="video/mp4" />
-          <!-- Fallback test video if your video doesn't work -->
-          <source
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            type="video/mp4"
-          />
-          <!-- Fallback for browsers that don't support video -->
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="hero__overlay">
+      <div class="hero__caption">
         <div class="hero__content">
           <h1 class="hero__headline">
             "Lose yourself in the magic of every turn."
@@ -110,6 +90,13 @@
           </p>
           <a href="#tours" class="hero__button">Book Your Tour</a>
         </div>
+      </div>
+      <div class="hero__media">
+        <img
+          src="./img/main-bg-customers.PNG"
+          alt="Happy customers on a Central Park pedicab tour"
+          class="hero__bg-image"
+        />
       </div>
     </section>
 
@@ -128,30 +115,67 @@
         </p>
         <a href="#tours" class="intro__button">See Tours</a>
 
-        <div class="carousel__container">
-          <div class="carousel__track" id="carouselTrack">
-            <div class="carousel__item">
-              <img src="./img/betesta-1.jpg" alt="Bethesda Fountain" />
+        <div class="carousel">
+          <div class="carousel__container">
+            <div class="carousel__track" id="carouselTrack">
+              <div class="carousel__item">
+                <img src="./img/car-pic1.JPG" alt="Bethesda Fountain" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic2.JPG" alt="John Lennon Memorial" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic3.JPG" alt="Central Park scenery" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic4.JPG" alt="Friends Fountain" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic5.JPG" alt="Home Alone 2 Bridge" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic6.JPG" alt="Pedicab tour moment" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic7.JPG" alt="Central Park path" />
+              </div>
+              <div class="carousel__item">
+                <img src="./img/car-pic8.JPG" alt="Guests enjoying the tour" />
+              </div>
             </div>
-            <div class="carousel__item">
-              <img src="./img/newImage1.JPG" alt="John Lennon Memorial" />
-            </div>
-            <div class="carousel__item">
-              <img src="./img/newImage2.JPG" alt="John Lennon Memorial" />
-            </div>
-            <div class="carousel__item">
-              <img src="./img/newImage3.JPG" alt="Friends Fountain" />
-            </div>
-            <div class="carousel__item">
-              <img src="./img/khush__1.jpg" alt="Home Alone 2 Bridge" />
-            </div>
-            <div class="carousel__item">
-              <img src="./img/card__imagine8h.png" alt="John Lennon Memorial" />
+
+            <button
+              type="button"
+              class="carousel__btn carousel__btn--prev"
+              aria-label="Previous photo"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="carousel__btn carousel__btn--next"
+              aria-label="Next photo"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </button>
+
+            <div class="carousel__counter" aria-live="polite">
+              <span id="carouselCurrent">1</span>
+              <span class="carousel__counter-sep">/</span>
+              <span id="carouselTotal">8</span>
             </div>
           </div>
-
-          <button class="carousel__btn carousel__btn--prev">&#10094;</button>
-          <button class="carousel__btn carousel__btn--next">&#10095;</button>
+          <div class="carousel__dots" id="carouselDots"></div>
         </div>
       </div>
     </section>
@@ -163,7 +187,9 @@
       </h2>
       <div class="tour__grid">
         <div class="tour__card">
-          <img src="./img/khush__1.jpg" alt="Tour 1" />
+          <div class="tour__card-media">
+            <img src="./img/tour-plan1.PNG" alt="Basic Tour" />
+          </div>
           <h3>Basic Tour</h3>
           <p class="tour__duration">30 min / 1 Stop</p>
           <button class="tour__stops-btn" data-tour="basic">
@@ -182,7 +208,9 @@
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
-          <img src="./img/bakha__1.jpg" alt="Tour 1" />
+          <div class="tour__card-media">
+            <img src="./img/tour-plan2.PNG" alt="Economy Tour" />
+          </div>
           <h3>Economy Tour</h3>
           <p class="tour__duration">40 min / 2 Stops</p>
           <button class="tour__stops-btn" data-tour="economy">
@@ -202,9 +230,29 @@
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
-          <img src="./img/IMG_9268.JPG" alt="Tour 1" />
+          <div class="tour__card-media">
+            <img src="./img/tour-plan3.PNG" alt="Classic Tour" />
+          </div>
           <h3>Classic Tour</h3>
           <p class="tour__duration">50 min / 3 Stops</p>
+          <p class="tour__note">
+            <span class="tour__note-icon" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
+                />
+              </svg>
+            </span>
+            <span class="tour__note-text"
+              >With drop-off (10 blocks away from park)</span
+            >
+          </p>
           <button class="tour__stops-btn" data-tour="classic">
             <span class="btn-text">View Stops</span>
             <span class="btn-icon">+</span>
@@ -223,9 +271,29 @@
           <button class="tour__card-button">Book Now</button>
         </div>
         <div class="tour__card">
-          <img src="./img/baha1.JPG" alt="Tour 1" />
+          <div class="tour__card-media">
+            <img src="./img/tour-plan4.PNG" alt="Deluxe Tour" />
+          </div>
           <h3>Deluxe Tour</h3>
           <p class="tour__duration">60 min / 4 Stops</p>
+          <p class="tour__note">
+            <span class="tour__note-icon" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
+                />
+              </svg>
+            </span>
+            <span class="tour__note-text"
+              >With drop-off (10 blocks away from park)</span
+            >
+          </p>
           <button class="tour__stops-btn" data-tour="deluxe">
             <span class="btn-text">View Stops</span>
             <span class="btn-icon">+</span>
@@ -513,7 +581,7 @@
           class="video__iframe"
           width="80%"
           height="600px"
-          src="https://www.youtube.com/embed/nxK-ina9Jzg?si=UlEbTGFnR85TsAd4"
+          src="https://www.youtube.com/embed/SBS6JUZ6J_0"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -582,10 +650,18 @@
       <!-- Form Section -->
       <section class="form__section" id="contact">
         <h2 class="form__title">Book a Tour</h2>
-        <form action="/api/book" method="POST" class="form__container">
-          <!-- The key line - Update this URL after deployment to your full domain -->
-          <!-- Example: value="https://your-site-name.onrender.com/thankYou.html" -->
+        <form
+          action="/api/book"
+          method="POST"
+          class="form__container"
+          id="bookingForm"
+          novalidate
+        >
           <input type="hidden" name="_next" value="/thankYou.html" />
+          <label class="form__honeypot" aria-hidden="true">
+            Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
 
           <input
             type="text"
@@ -652,14 +728,114 @@
           ></div>
 
           <!-- Date (Calendar) -->
-          <label class="tour__Date" for="tourDate">Choose a date</label>
-          <input
-            type="date"
-            id="tourDate"
-            name="Tour Date"
-            class="form__input"
-            required
-          />
+          <label class="form__label tour__Date" for="tourDateTrigger"
+            >Choose a date</label
+          >
+          <div class="date-picker" id="tourDatePicker">
+            <input
+              type="hidden"
+              id="tourDate"
+              name="Tour Date"
+              required
+            />
+            <button
+              type="button"
+              id="tourDateTrigger"
+              class="date-picker__trigger form__input"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-labelledby="tourDatePickerLabel"
+            >
+              <span class="date-picker__text date-picker__text--placeholder"
+                >Select tour date</span
+              >
+              <span
+                class="date-picker__text date-picker__text--value"
+                hidden
+              ></span>
+              <span class="date-picker__icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="date-picker__backdrop"
+              id="tourDateBackdrop"
+              hidden
+              aria-hidden="true"
+            ></div>
+            <div
+              class="date-picker__popover"
+              id="tourDatePopover"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Choose tour date"
+              hidden
+            >
+              <div class="date-picker__header">
+                <button
+                  type="button"
+                  class="date-picker__nav"
+                  data-action="prev-month"
+                  aria-label="Previous month"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <span class="date-picker__month" id="tourDateMonthLabel"></span>
+                <button
+                  type="button"
+                  class="date-picker__nav"
+                  data-action="next-month"
+                  aria-label="Next month"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </div>
+              <div class="date-picker__weekdays" aria-hidden="true">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span
+                ><span>Th</span><span>Fr</span><span>Sa</span>
+              </div>
+              <div class="date-picker__grid" id="tourDateGrid"></div>
+            </div>
+          </div>
+          <span id="tourDatePickerLabel" class="visually-hidden"
+            >Tour date picker</span
+          >
 
           <!-- Time Selector -->
           <select name="Tour Time" class="form__input" required>
@@ -689,7 +865,21 @@
             class="form__textarea"
           ></textarea>
 
-          <button type="submit" class="form__button">Send Request</button>
+          <div
+            id="formStatus"
+            class="form__status"
+            role="alert"
+            aria-live="polite"
+          ></div>
+
+          <button type="submit" class="form__button" id="submitButton">
+            Send Request
+          </button>
+          <p class="form__helper">
+            If you do not receive a confirmation email within a few minutes,
+            call
+            <a href="tel:+19296457024">+1 (929) 645-7024</a>.
+          </p>
         </form>
       </section>
 
@@ -699,7 +889,9 @@
         <div class="booking-info__card">
           <p>
             When you schedule a tour, you'll receive a confirmation email with
-            the meeting point address and the name of your driver.
+            the meeting point address and the name of your driver. If email does
+            not arrive, call us at
+            <a href="tel:+19296457024">+1 (929) 645-7024</a>.
           </p>
           <h3 class="booking-info__subtitle">Payment Information</h3>
           <p>
@@ -805,6 +997,20 @@
       </section>
     </div>
 
+    <!-- Tour card lightbox -->
+    <div
+      id="tourCardModal"
+      class="tour-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tourModalTitle"
+    >
+      <p class="tour-modal__hint">Click anywhere to close</p>
+      <div class="tour-modal__backdrop"></div>
+      <div class="tour-modal__inner"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -812,6 +1018,7 @@
       </div>
     </footer>
 
+    <script src="./js/date-picker.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

@@ -1,118 +1,118 @@
 # WanderWay - Central Park Pedicab Tours
 
-A beautiful, responsive website for booking Central Park pedicab tours in New York City.
+A responsive website for booking Central Park pedicab tours in New York City.
 
 ## Features
 
-- 🚲 **Tour Booking System** - Easy-to-use form with email validation
-- 📱 **Responsive Design** - Works perfectly on all devices
-- 🎨 **Modern UI** - Clean, professional design with smooth animations
-- ✅ **Email Validation** - Real-time email format checking
-- 📍 **Interactive Elements** - Tour details, meeting point, and booking info
-- 🎬 **Media Integration** - YouTube video and image galleries
+- **Tour booking** — Form with client and server validation
+- **Dual email notifications** — Business owner + customer confirmation via Resend
+- **Clear error handling** — Friendly messages if submission or email fails
+- **Responsive design** — Works on mobile and desktop
 
 ## Tour Options
 
-- **Basic Tour** (30 min, 1 stop) - $50
-- **Economy Tour** (40 min, 2 stops) - $60
-- **Classic Tour** (50 min, 3 stops) - $70
-- **Deluxe Tour** (60 min, 4 stops) - $80
+- **Basic Tour** (30 min, 1 stop)
+- **Economy Tour** (40 min, 2 stops)
+- **Classic Tour** (50 min, 3 stops)
+- **Deluxe Tour** (60 min, 4 stops)
 
-## Technologies Used
+## Technologies
 
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Backend**: Node.js with Express.js
-- **Form Handling**: FormSubmit.co
+- **Frontend**: HTML, CSS, vanilla JavaScript
+- **Backend**: Node.js + Express (`POST /api/book`)
+- **Email**: [Resend](https://resend.com)
 - **Deployment**: Render.com
+
+## How booking works
+
+```text
+Browser form  →  POST /api/book (your Express server)  →  Resend sends 2 emails
+                     ↓
+              JSON response  →  thank-you page
+```
+
+The site does **not** use FormSubmit. Your server owns the booking flow; only the email provider changed.
 
 ## Local Development
 
-1. **Install dependencies**:
+1. Copy environment variables:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Get a Resend API key at [resend.com/api-keys](https://resend.com/api-keys). Verify your domain (or use Resend’s test sender while developing).
+
+2. Install and run:
 
    ```bash
    npm install
-   ```
-
-2. **Start the development server**:
-
-   ```bash
    npm start
    ```
 
-3. **Open your browser**:
-   Navigate to `http://localhost:3000`
+3. Open `http://localhost:5000` (or the port in `PORT`).
+
+### Verify email setup
+
+| Endpoint | Purpose |
+|----------|---------|
+| `GET /api/debug` | Confirms Resend key and env vars are loaded |
+| `GET /api/test-email` | Sends a test email to `EMAIL_TO` |
+| `GET /api/test-templates` | Returns a preview of template HTML |
+
+Submit a test booking through the form on the home page.
+
+## Environment Variables
+
+Set these locally (`.env`) and on Render:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `RESEND_API_KEY` | Yes | API key from Resend (`re_...`) |
+| `EMAIL_FROM` | Yes | Verified sender, e.g. `WanderWay <booking@yourdomain.com>` |
+| `EMAIL_TO` | Yes | Business inbox for new booking alerts |
+| `PORT` | No | Server port (default `5000`) |
 
 ## Deployment on Render
 
-### Step 1: Prepare Your Repository
+1. Connect your Git repository.
+2. **Build command**: `npm install`
+3. **Start command**: `npm start`
+4. Add `RESEND_API_KEY`, `EMAIL_FROM`, and `EMAIL_TO` in the Render dashboard.
+5. After deploy, verify:
+   - `https://your-domain.com/api/debug`
+   - `https://your-domain.com/api/test-email`
+   - Submit a real test booking
 
-1. Ensure all files are committed to your Git repository
-2. Push your code to GitHub, GitLab, or Bitbucket
-
-### Step 2: Deploy on Render
-
-1. Go to [render.com](https://render.com) and sign up/login
-2. Click "New +" and select "Web Service"
-3. Connect your repository
-4. Configure the deployment:
-   - **Name**: `wanderway-tours` (or your preferred name)
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Instance Type**: Free tier is sufficient
-
-### Step 3: Update Form Redirect (After Deployment)
-
-After deployment, update the form redirect URL:
-
-1. Copy your deployed site URL (e.g., `https://wanderway-tours.onrender.com`)
-2. Update line 599 in `index.html`:
-
-   ```html
-   <!-- Change this: -->
-   <input type="hidden" name="_next" value="./thankYou.html" />
-
-   <!-- To this (replace with your actual domain): -->
-   <input
-     type="hidden"
-     name="_next"
-     value="https://your-site-name.onrender.com/thankYou.html"
-   />
-   ```
-
-3. Commit and push the changes
-
-### Step 4: Environment Variables (Optional)
-
-If you want to add any environment-specific configurations, you can set them in Render's dashboard under "Environment Variables".
+See [PRODUCTION_TROUBLESHOOTING.md](PRODUCTION_TROUBLESHOOTING.md) if emails fail in production.
 
 ## File Structure
 
 ```
 wanderWay/
-├── index.html              # Main landing page
-├── thankYou.html           # Form submission confirmation
-├── server.js               # Express.js server
-├── package.json            # Node.js dependencies
-├── .gitignore             # Git ignore rules
+├── index.html
+├── thankYou.html
+├── server.js
+├── email-templates.js
+├── package.json
 ├── css/
-│   ├── style.css          # Main styles
-│   └── animation.css      # Animations
+│   ├── style.css
+│   ├── animation.css
+│   └── booking.css
 ├── js/
-│   └── script.js          # JavaScript functionality
-└── img/                   # Images and assets
+│   └── script.js
+├── dev/
+│   ├── email-templates.html
+│   └── preview-emails.html
+└── img/
 ```
 
-## Contact Information
+## Contact
 
-- **Phone**: +1 213-709-5924
+- **Phone**: +1 (929) 645-7024
 - **Email**: wanderway06042025@gmail.com
 - **Meeting Point**: 764 Doris C Freedman PI, New York, NY 10019
 
 ## License
 
-This project is licensed under the MIT License.
-
----
-
-_Ready to explore Central Park? Book your pedicab tour today!_ 🚲✨
+MIT License

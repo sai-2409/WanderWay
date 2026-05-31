@@ -259,6 +259,11 @@
   box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.12);
 }
 
+.date-picker__popover[hidden] {
+  display: none !important;
+  pointer-events: none;
+}
+
 .date-picker__popover {
   position: absolute;
   top: calc(100% + 8px);
@@ -402,12 +407,17 @@
 }
 
 .date-picker__backdrop {
-  display: none;
+  display: none !important;
+  pointer-events: none;
+}
+
+.date-picker__backdrop:not([hidden]) {
+  display: block !important;
+  pointer-events: auto;
 }
 
 @media (max-width: 480px) {
-  .date-picker__backdrop {
-    display: block;
+  .date-picker__backdrop:not([hidden]) {
     position: fixed;
     inset: 0;
     z-index: 150;
@@ -418,7 +428,7 @@
     cursor: pointer;
   }
 
-  .date-picker__popover {
+  .date-picker__popover:not([hidden]) {
     position: fixed;
     top: auto;
     bottom: 0;

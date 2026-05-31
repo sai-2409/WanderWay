@@ -1645,20 +1645,19 @@ select.form__input:focus {
   }
 
   .nav-backdrop {
-    display: block;
+    display: none;
     position: fixed;
     inset: 0;
     z-index: 1040;
     background: rgba(0, 0, 0, 0.55);
-    opacity: 0;
-    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity 0.25s ease;
+    opacity: 0;
   }
 
   .nav-backdrop.is-visible {
+    display: block;
     opacity: 1;
-    visibility: visible;
     pointer-events: auto;
   }
 
@@ -1701,6 +1700,7 @@ select.form__input:focus {
 
   .header__nav,
   #header__nav-id {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
@@ -1758,14 +1758,19 @@ select.form__input:focus {
   }
 
   .hero__caption {
-    padding: 1.25rem 16px 1rem;
+    padding: 1rem 16px 0.35rem;
+  }
+
+  .hero__sub {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
 
   .hero__media,
   .hero__video-container {
     height: 72vh;
     min-height: 340px;
-    padding: 0.5rem 0.65rem 0.75rem;
+    padding: 0.15rem 0.65rem 0.5rem;
   }
 
   .hero__bg-image {
@@ -1778,10 +1783,6 @@ select.form__input:focus {
 
   .hero__headline {
     font-size: 1.65rem;
-  }
-
-  .hero__sub {
-    font-size: 0.95rem;
   }
 
   .hero__button {
@@ -2054,11 +2055,20 @@ select.form__input:focus {
     display: block;
   }
 
+  .hero__caption {
+    padding-bottom: 0.2rem;
+  }
+
+  .hero__sub {
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+
   .hero__media,
   .hero__video-container {
     height: 78vh;
     min-height: 380px;
-    padding: 0.35rem 0.5rem 0.5rem;
+    padding: 0 0.5rem 0.4rem;
   }
 
   .hero__headline {

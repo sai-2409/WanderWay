@@ -1,31 +1,56 @@
-// Writing code for making header sticky
+// Sticky header (desktop only — fixed .sticky on mobile blocked taps)
 const header = document.querySelector(".header");
 const nav = document.querySelector(".header__nav");
-const navContainer = document.querySelector(".container");
-
-const stickyObserver = new IntersectionObserver(
-  ([entry]) => {
-    if (!entry.isIntersecting) {
-      navContainer.classList.add("sticky");
-    } else {
-      navContainer.classList.remove("sticky");
-    }
-  },
-  {
-    root: null,
-    threshold: 0,
-    rootMargin: "-1px",
-  }
-);
-stickyObserver.observe(header);
-
-// Functioning side bar
+const navContainer = document.querySelector(".header .container");
 const hamburger = document.getElementById("hamburger");
+const navBackdrop = document.getElementById("navBackdrop");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  nav.classList.toggle("open");
-});
+function isMobileNav() {
+  return window.matchMedia("(max-width: 768px)").matches;
+}
+
+if (header && navContainer && !isMobileNav()) {
+  const stickyObserver = new IntersectionObserver(
+    ([entry]) => {
+      navContainer.classList.toggle("sticky", !entry.isIntersecting);
+    },
+    { root: null, threshold: 0, rootMargin: "-1px" }
+  );
+  stickyObserver.observe(header);
+}
+
+function setMobileNavOpen(open) {
+  if (!nav || !hamburger) return;
+  hamburger.classList.toggle("open", open);
+  nav.classList.toggle("open", open);
+  if (navBackdrop) {
+    navBackdrop.classList.toggle("is-visible", open);
+    navBackdrop.setAttribute("aria-hidden", open ? "false" : "true");
+  }
+  document.body.classList.toggle("nav-open", open);
+}
+
+function closeMobileNav() {
+  setMobileNavOpen(false);
+}
+
+if (hamburger && nav) {
+  hamburger.addEventListener("click", () => {
+    setMobileNavOpen(!nav.classList.contains("open"));
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMobileNav);
+  });
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener("click", closeMobileNav);
+  }
+
+  window.addEventListener("resize", () => {
+    if (!isMobileNav()) closeMobileNav();
+  });
+}
 
 // Hero background: optional video (use .hero__video + MP4/WebM sources)
 document.addEventListener("DOMContentLoaded", () => {

@@ -244,12 +244,92 @@ renderReview(reviews[reviewIndex++]);
 // <div>We have recieved your information, and we'll contact you as soon as possible !</div>
 // `;
 
-function scrollToBookingSection() {
+function setTourTypeSelection(tourName) {
+  const tourSelect = document.getElementById("tourType");
+  if (!tourSelect || !tourName) return false;
+
+  const name = tourName.trim();
+  const option = Array.from(tourSelect.options).find(
+    (opt) => opt.value.trim() === name || opt.textContent.trim() === name
+  );
+
+  if (!option) return false;
+
+  tourSelect.value = option.value;
+  tourSelect.dispatchEvent(new Event("change", { bubbles: true }));
+  return true;
+}
+
+function getTourNameFromCard(card) {
+  return card?.querySelector("h3")?.textContent?.trim() || "";
+}
+
+function scrollToBookingSection(tourName) {
+  if (tourName) setTourTypeSelection(tourName);
+
   const contactSection = document.getElementById("contact");
   if (contactSection) {
     contactSection.scrollIntoView({ behavior: "smooth" });
   }
 }
+
+let pendingBookingTourName = null;
+
+function openPayNoticeModal(tourName) {
+  const modal = document.getElementById("payNoticeModal");
+  if (!modal) {
+    scrollToBookingSection(tourName);
+    return;
+  }
+
+  pendingBookingTourName = tourName || null;
+  modal.classList.remove("is-closing");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("pay-notice-open");
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      modal.classList.add("is-open");
+    });
+  });
+
+  const gotItBtn = document.getElementById("payNoticeGotIt");
+  gotItBtn?.focus();
+}
+
+function closePayNoticeModal() {
+  const modal = document.getElementById("payNoticeModal");
+  if (!modal || !modal.classList.contains("is-open")) return;
+
+  const tourName = pendingBookingTourName;
+  pendingBookingTourName = null;
+
+  modal.classList.remove("is-open");
+  modal.classList.add("is-closing");
+
+  let finished = false;
+  const finishClose = () => {
+    if (finished) return;
+    finished = true;
+    modal.classList.remove("is-closing");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("pay-notice-open");
+    scrollToBookingSection(tourName);
+  };
+
+  const dialog = modal.querySelector(".pay-notice-modal__dialog");
+  dialog?.addEventListener("transitionend", finishClose, { once: true });
+  setTimeout(finishClose, 380);
+}
+
+function startBookNowFlow(tourName) {
+  openPayNoticeModal(tourName);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gotItBtn = document.getElementById("payNoticeGotIt");
+  gotItBtn?.addEventListener("click", closePayNoticeModal);
+});
 
 // Animating the Roadmap section
 const roadmapImages = document.querySelectorAll(".roadmap__image");
@@ -294,11 +374,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modalInner.appendChild(clone);
 
+    const tourName = getTourNameFromCard(card);
+
     clone.querySelectorAll(".tour__card-button").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
         closeTourModal();
-        scrollToBookingSection();
+        startBookNowFlow(tourName);
       });
     });
 
@@ -346,7 +428,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("click", (e) => {
   const bookBtn = e.target.closest(".tour__card-button");
   if (!bookBtn || bookBtn.closest("#tourCardModal")) return;
-  scrollToBookingSection();
+  e.preventDefault();
+  const card = bookBtn.closest(".tour__card");
+  startBookNowFlow(getTourNameFromCard(card));
 });
 
 // Tour Stops Button Functionality

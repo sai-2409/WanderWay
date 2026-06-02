@@ -98,11 +98,18 @@
         </div>
       </div>
       <div class="hero__media">
-        <img
-          src="./img/main-bg-customers.PNG"
-          alt="Happy customers on a Central Park pedicab tour"
-          class="hero__bg-image"
-        />
+        <picture class="hero__picture">
+          <source
+            media="(max-width: 768px)"
+            srcset="./img/main-pic-phone.PNG"
+          />
+          <img
+            src="./img/main-bg-customers.PNG"
+            alt="Happy customers on a Central Park pedicab tour"
+            class="hero__bg-image"
+            decoding="async"
+          />
+        </picture>
       </div>
     </section>
 
@@ -653,6 +660,119 @@
         </div>
       </section>
 
+      <!-- Booking Info -->
+      <section class="booking-info">
+        <h2 class="booking-info__title intro__title">Book Your Tour Easily</h2>
+        <div class="booking-info__card">
+          <p>
+            When you schedule a tour, you'll receive a confirmation email with
+            the meeting point address and the name of your driver. If email does
+            not arrive, call us at
+            <a href="tel:+19296457024">+1 (929) 645-7024</a>.
+          </p>
+          <h3 class="booking-info__subtitle">Payment Information</h3>
+          <p>
+            Please note that all payments are made directly to the driver at the
+            meeting point before the tour begins.
+          </p>
+          <h3 class="booking-info__subtitle">Accepted Payments</h3>
+          <div class="payment-methods" aria-label="Accepted payment methods">
+            <!-- Cash -->
+            <div class="payment-method" aria-label="Cash">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#22c55e">
+                <path
+                  d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 8V6L12 1L3 6V8H21M3 10V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V10H3M12 11C14.2 11 16 12.8 16 15S14.2 19 12 19 8 17.2 8 15 9.8 11 12 11M12 13C10.9 13 10 13.9 10 15S10.9 17 12 17 14 16.1 14 15 13.1 13 12 13Z"
+                />
+              </svg>
+              <span class="payment-label">Cash</span>
+            </div>
+
+            <!-- Venmo -->
+            <div class="payment-method" aria-label="Venmo">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/venmo.svg"
+                alt="Venmo"
+                loading="lazy"
+              />
+              <span class="payment-label">Venmo</span>
+            </div>
+
+            <!-- PayPal -->
+            <div class="payment-method" aria-label="PayPal">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg"
+                alt="PayPal"
+                loading="lazy"
+              />
+              <span class="payment-label">PayPal</span>
+            </div>
+
+            <!-- Zelle -->
+            <div class="payment-method" aria-label="Zelle">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#6c1fff">
+                <path
+                  d="M23.999 12c0 6.627-5.372 12-11.999 12S.001 18.627.001 12 5.373 0 12 0s11.999 5.373 11.999 12zM12 2.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S17.302 2.4 12 2.4zm5.694 7.203H9.847l5.458-4.072c.302-.225.362-.652.137-.954-.225-.302-.652-.362-.954-.137L7.2 9.694v-.847c0-.378-.306-.684-.684-.684s-.684.306-.684.684v2.306c0 .378.306.684.684.684h11.178c.378 0 .684-.306.684-.684s-.306-.684-.684-.684z"
+                />
+              </svg>
+              <span class="payment-label">Zelle</span>
+            </div>
+
+            <!-- Cash App -->
+            <div class="payment-method" aria-label="Cash App">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#00d632">
+                <path
+                  d="M23.59 3.475a5.1 5.1 0 0 0-3.05-3.05c-1.31-.35-6.15-.35-6.15-.35s-4.85 0-6.15.35a5.1 5.1 0 0 0-3.05 3.05c-.35 1.3-.35 6.15-.35 6.15s0 4.85.35 6.15a5.1 5.1 0 0 0 3.05 3.05c1.3.35 6.15.35 6.15.35s4.85 0 6.15-.35a5.1 5.1 0 0 0 3.05-3.05c.35-1.3.35-6.15.35-6.15s0-4.85-.35-6.15zm-9.4 10.9h-2.4c-3.15 0-5.4-2.4-5.4-5.4s2.25-5.4 5.4-5.4h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05h-2.4c-1.95 0-3.3 1.35-3.3 3.3s1.35 3.3 3.3 3.3h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05z"
+                />
+              </svg>
+              <span class="payment-label">Cash App</span>
+            </div>
+
+            <!-- Debit/Credit Cards -->
+            <div class="payment-method" aria-label="Visa">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg"
+                alt="Visa"
+                loading="lazy"
+              />
+              <span class="payment-label">Visa</span>
+            </div>
+            <div class="payment-method" aria-label="Mastercard">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg"
+                alt="Mastercard"
+                loading="lazy"
+              />
+              <span class="payment-label">Mastercard</span>
+            </div>
+            <div class="payment-method" aria-label="American Express">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg"
+                alt="American Express"
+                loading="lazy"
+              />
+              <span class="payment-label">AmEx</span>
+            </div>
+            <div class="payment-method" aria-label="Discover">
+              <img
+                class="payment-icon-img"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discover.svg"
+                alt="Discover"
+                loading="lazy"
+              />
+              <span class="payment-label">Discover</span>
+            </div>
+          </div>
+          <p class="booking-info__note">
+            Your booking process is simple, secure, and convenient.
+          </p>
+        </div>
+      </section>
+
       <!-- Form Section -->
       <section class="form__section" id="contact">
         <h2 class="form__title">Book a Tour</h2>
@@ -888,119 +1008,49 @@
           </p>
         </form>
       </section>
+    </div>
 
-      <!-- Booking Info -->
-      <section class="booking-info">
-        <h2 class="booking-info__title intro__title">Book Your Tour Easily</h2>
-        <div class="booking-info__card">
-          <p>
-            When you schedule a tour, you'll receive a confirmation email with
-            the meeting point address and the name of your driver. If email does
-            not arrive, call us at
-            <a href="tel:+19296457024">+1 (929) 645-7024</a>.
-          </p>
-          <h3 class="booking-info__subtitle">Payment Information</h3>
-          <p>
-            Please note that all payments are made directly to the driver at the
-            meeting point before the tour begins.
-          </p>
-          <h3 class="booking-info__subtitle">Accepted Payments</h3>
-          <div class="payment-methods" aria-label="Accepted payment methods">
-            <!-- Cash -->
-            <div class="payment-method" aria-label="Cash">
-              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#22c55e">
-                <path
-                  d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 8V6L12 1L3 6V8H21M3 10V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V10H3M12 11C14.2 11 16 12.8 16 15S14.2 19 12 19 8 17.2 8 15 9.8 11 12 11M12 13C10.9 13 10 13.9 10 15S10.9 17 12 17 14 16.1 14 15 13.1 13 12 13Z"
-                />
-              </svg>
-              <span class="payment-label">Cash</span>
-            </div>
-
-            <!-- Venmo -->
-            <div class="payment-method" aria-label="Venmo">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/venmo.svg"
-                alt="Venmo"
-                loading="lazy"
-              />
-              <span class="payment-label">Venmo</span>
-            </div>
-
-            <!-- PayPal -->
-            <div class="payment-method" aria-label="PayPal">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg"
-                alt="PayPal"
-                loading="lazy"
-              />
-              <span class="payment-label">PayPal</span>
-            </div>
-
-            <!-- Zelle -->
-            <div class="payment-method" aria-label="Zelle">
-              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#6c1fff">
-                <path
-                  d="M23.999 12c0 6.627-5.372 12-11.999 12S.001 18.627.001 12 5.373 0 12 0s11.999 5.373 11.999 12zM12 2.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S17.302 2.4 12 2.4zm5.694 7.203H9.847l5.458-4.072c.302-.225.362-.652.137-.954-.225-.302-.652-.362-.954-.137L7.2 9.694v-.847c0-.378-.306-.684-.684-.684s-.684.306-.684.684v2.306c0 .378.306.684.684.684h11.178c.378 0 .684-.306.684-.684s-.306-.684-.684-.684z"
-                />
-              </svg>
-              <span class="payment-label">Zelle</span>
-            </div>
-
-            <!-- Cash App -->
-            <div class="payment-method" aria-label="Cash App">
-              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#00d632">
-                <path
-                  d="M23.59 3.475a5.1 5.1 0 0 0-3.05-3.05c-1.31-.35-6.15-.35-6.15-.35s-4.85 0-6.15.35a5.1 5.1 0 0 0-3.05 3.05c-.35 1.3-.35 6.15-.35 6.15s0 4.85.35 6.15a5.1 5.1 0 0 0 3.05 3.05c1.3.35 6.15.35 6.15.35s4.85 0 6.15-.35a5.1 5.1 0 0 0 3.05-3.05c.35-1.3.35-6.15.35-6.15s0-4.85-.35-6.15zm-9.4 10.9h-2.4c-3.15 0-5.4-2.4-5.4-5.4s2.25-5.4 5.4-5.4h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05h-2.4c-1.95 0-3.3 1.35-3.3 3.3s1.35 3.3 3.3 3.3h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05z"
-                />
-              </svg>
-              <span class="payment-label">Cash App</span>
-            </div>
-
-            <!-- Debit/Credit Cards -->
-            <div class="payment-method" aria-label="Visa">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg"
-                alt="Visa"
-                loading="lazy"
-              />
-              <span class="payment-label">Visa</span>
-            </div>
-            <div class="payment-method" aria-label="Mastercard">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg"
-                alt="Mastercard"
-                loading="lazy"
-              />
-              <span class="payment-label">Mastercard</span>
-            </div>
-            <div class="payment-method" aria-label="American Express">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg"
-                alt="American Express"
-                loading="lazy"
-              />
-              <span class="payment-label">AmEx</span>
-            </div>
-            <div class="payment-method" aria-label="Discover">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discover.svg"
-                alt="Discover"
-                loading="lazy"
-              />
-              <span class="payment-label">Discover</span>
-            </div>
-          </div>
-          <p class="booking-info__note">
-            Your booking process is simple, secure, and convenient.
-          </p>
+    <!-- Pay-after-tour notice (shown when booking from tour cards) -->
+    <div
+      id="payNoticeModal"
+      class="pay-notice-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="payNoticeTitle"
+    >
+      <div class="pay-notice-modal__backdrop" aria-hidden="true"></div>
+      <div class="pay-notice-modal__dialog">
+        <div class="pay-notice-modal__icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M8.5 12.5l2.2 2.2 4.8-5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-      </section>
+        <h2 id="payNoticeTitle" class="pay-notice-modal__title">
+          No payment before your ride
+        </h2>
+        <p class="pay-notice-modal__text">
+          We won&rsquo;t charge you anything upfront. You can pay your driver
+          <strong>after</strong> your tour, at the meeting point&mdash;when
+          you&rsquo;re ready to roll.
+        </p>
+        <button type="button" class="pay-notice-modal__btn" id="payNoticeGotIt">
+          Got it
+        </button>
+      </div>
     </div>
 
     <!-- Tour card lightbox -->

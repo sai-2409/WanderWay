@@ -3,122 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanderWay</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>WanderWay – Central Park Pedicab Tours NYC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="shortcut icon"
-      href="img/logotype first try.svg"
-      type="image/x-icon"
-    />
-
-    <!-- Connecting the CSS files for the styles -->
-    <link rel="stylesheet" href="css/animation.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="img/logotype first try.svg" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animation.css" />
     <link rel="stylesheet" href="css/booking.css" />
   </head>
   <body>
-    <!-- Top bar for the website  -->
-    <!-- Top Info Bar -->
-    <div class="top__bar">
-      <div class="top__bar-left">
-        <span><i class="fas fa-phone-alt"></i>📲 +1 (929) 645-7024</span>
-        <span>|</span>
-        <span
-          ><i class="fas fa-envelope"></i>✉️ wanderway06042025@gmail.com</span
-        >
-      </div>
-      <div class="top__bar-right">
-        <a href=""
-          ><i class="fab fa-whatsapp"
-            ><img src="./img/whatsapp.png" alt="WhatsApp" /></i
-        ></a>
-        <span>|</span>
-        <a href="https://www.tiktok.com/@one_wander_way?_t=ZT-8wwAELjbuaE&_r=1"
-          ><i class="fab fa-facebook-f"
-            ><img src="./img/tiktok.png" alt="TikTok" /></i
-        ></a>
-        <span>|</span>
-        <a
-          href="https://www.instagram.com/boyofcentralpark?igsh=OTdjemlkejBxcHp0&utm_source=qr"
-          ><i class="fab fa-instagram"
-            ><img src="./img/instagram.png" alt="Instagram" /></i
-        ></a>
-      </div>
-    </div>
 
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="header__brand">
-          <div class="header__logo">
-            <img
-              class="header__logo-image"
-              src="./img/logo_white 1.png"
-              alt="Logotype"
-            />
-            <h2 class="header__logo-name">WanderWay</h2>
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="mainHeader">
+      <div class="header__inner">
+        <a href="#home" class="header__brand">
+          <img class="header__logo-image" src="./img/logo_white 1.png" alt="WanderWay" />
+          <div class="header__brand-text">
+            <span class="header__logo-name">WanderWay</span>
+            <span class="header__logo-sub">New York Tours</span>
           </div>
-          <p class="header__tagline">
-            Fun Central Park Pedicab Tours for You to Explore!
-          </p>
-        </div>
+        </a>
+
         <nav class="header__nav" id="header__nav-id">
-          <a href="#home">Home</a>
           <a href="#tours">Tours</a>
-          <a href="#about">About</a>
+          <a href="#about">About Us</a>
           <a href="#reviews">Reviews</a>
+          <a href="#roadmap">Itinerary</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
+        <div class="header__actions">
+          <a href="tel:+19296457024" class="header__phone">📲 929-645-7024</a>
+          <a href="#contact" class="header__book-btn">BOOK NOW</a>
         </div>
+
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
     <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
-      <div class="hero__caption">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__container">
         <div class="hero__content">
+          <div class="hero__license-badge">🏆 Licensed NYC PEDICAB TOURS</div>
+
           <h1 class="hero__headline">
-            "Lose yourself in the magic of every turn."
+            Central Park
+            <span class="hero__headline-accent">Pedicab Tours</span>
           </h1>
-          <p class="hero__sub">
-            Explore Central Park with our friendly Pedicab Tours
-          </p>
-          <a href="#tours" class="hero__button">Book Your Tour</a>
+
+          <div class="hero__rating-row">
+            <span class="hero__stars">★★★★★</span>
+            <span class="hero__rating-text">5 Star Rated by Hundreds of Happy Guests</span>
+          </div>
+
+          <p class="hero__location">📍 Central Park, New York</p>
+
+          <div class="hero__trust-row">
+            <span class="hero__trust-pill">✅ Fixed Prices</span>
+            <span class="hero__trust-pill">✅ Licensed</span>
+            <span class="hero__trust-pill">✅ Professional</span>
+            <span class="hero__trust-pill">✅ Family Friendly</span>
+          </div>
+
+          <div class="hero__ctas">
+            <a href="#contact" class="hero__btn-primary">📅 BOOK YOUR TOUR NOW</a>
+            <a href="tel:+19296457024" class="hero__btn-secondary">📞 CALL / TEXT</a>
+          </div>
+
+          <div class="hero__social-proof">
+            <div class="hero__avatars" aria-hidden="true">
+              <span class="hero__avatar">👤</span>
+              <span class="hero__avatar">👤</span>
+              <span class="hero__avatar">👤</span>
+            </div>
+            <span>Join <strong>1,000+</strong> Happy Travelers!</span>
+          </div>
         </div>
       </div>
-      <div class="hero__media">
-        <picture class="hero__picture">
-          <source
-            media="(max-width: 768px)"
-            srcset="./img/main-pic-phone.PNG"
-          />
-          <img
-            src="./img/main-bg-customers.PNG"
-            alt="Happy customers on a Central Park pedicab tour"
-            class="hero__bg-image"
-            decoding="async"
-          />
-        </picture>
+
+      <div class="hero__google-badge">
+        <div class="hero__google-g">G</div>
+        <div class="hero__google-info">
+          <div class="hero__google-stars">★★★★★</div>
+          <div><strong>5.0</strong> · 1,326 Reviews</div>
+        </div>
       </div>
     </section>
 
-    <!-- Intro section coding -->
+    <!-- ===== INTRO + CAROUSEL ===== -->
     <section class="intro" id="intro">
       <div class="intro__content">
         <h2 class="intro__title">Discover Central Park with Us</h2>
         <p class="intro__text">
-          At WanderWay, we don’t just offer rides — we create unforgettable
+          At WanderWay, we don't just offer rides — we create unforgettable
           moments in the heart of New York City. Our guided Pedicab tours take
           you on a relaxing journey through the beauty and history of Central
           Park, with four iconic stops every visitor should experience:
@@ -131,61 +117,23 @@
         <div class="carousel">
           <div class="carousel__container">
             <div class="carousel__track" id="carouselTrack">
-              <div class="carousel__item">
-                <img src="./img/car-pic1.JPG" alt="Bethesda Fountain" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic2.JPG" alt="John Lennon Memorial" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic3.JPG" alt="Central Park scenery" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic4.JPG" alt="Friends Fountain" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic5.JPG" alt="Home Alone 2 Bridge" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic6.JPG" alt="Pedicab tour moment" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic7.JPG" alt="Central Park path" />
-              </div>
-              <div class="carousel__item">
-                <img src="./img/car-pic8.JPG" alt="Guests enjoying the tour" />
-              </div>
+              <div class="carousel__item"><img src="./img/car-pic1.JPG" alt="Bethesda Fountain" /></div>
+              <div class="carousel__item"><img src="./img/car-pic2.JPG" alt="John Lennon Memorial" /></div>
+              <div class="carousel__item"><img src="./img/car-pic3.JPG" alt="Central Park scenery" /></div>
+              <div class="carousel__item"><img src="./img/car-pic4.JPG" alt="Friends Fountain" /></div>
+              <div class="carousel__item"><img src="./img/car-pic5.JPG" alt="Home Alone 2 Bridge" /></div>
+              <div class="carousel__item"><img src="./img/car-pic6.JPG" alt="Pedicab tour moment" /></div>
+              <div class="carousel__item"><img src="./img/car-pic7.JPG" alt="Central Park path" /></div>
+              <div class="carousel__item"><img src="./img/car-pic8.JPG" alt="Guests enjoying the tour" /></div>
             </div>
-
-            <button
-              type="button"
-              class="carousel__btn carousel__btn--prev"
-              aria-label="Previous photo"
-            >
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                />
-              </svg>
+            <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Previous photo">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
             </button>
-            <button
-              type="button"
-              class="carousel__btn carousel__btn--next"
-              aria-label="Next photo"
-            >
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
+            <button type="button" class="carousel__btn carousel__btn--next" aria-label="Next photo">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
             </button>
-
             <div class="carousel__counter" aria-live="polite">
-              <span id="carouselCurrent">1</span>
-              <span class="carousel__counter-sep">/</span>
-              <span id="carouselTotal">8</span>
+              <span id="carouselCurrent">1</span><span class="carousel__counter-sep">/</span><span id="carouselTotal">8</span>
             </div>
           </div>
           <div class="carousel__dots" id="carouselDots"></div>
@@ -193,42 +141,47 @@
       </div>
     </section>
 
-    <!-- Tours Section -->
+    <!-- ===== TOURS ===== -->
     <section class="tours" id="tours">
-      <h2 class="tours__title">
-        Central Park <span>PEDICAB</span> Guided Tours
-      </h2>
+      <div class="tours__header">
+        <h2 class="tours__title">Central Park <span>PEDICAB</span> Guided Tours</h2>
+        <p class="tours__subtitle">Choose the perfect tour for your adventure</p>
+      </div>
       <div class="tour__grid">
+
         <div class="tour__card">
-          <div class="tour__card-media">
-            <img src="./img/tour-plan1.PNG" alt="Basic Tour" />
-          </div>
+          <div class="tour__card-media"><img src="./img/tour-plan1.PNG" alt="Basic Tour" /></div>
+          <div class="tour__card-duration">30 MINUTES TOUR</div>
           <h3>Basic Tour</h3>
-          <p class="tour__duration">30 min / 1 Stop</p>
+          <div class="tour__card-price"><span>$50</span> <small>+$10 / extra person</small></div>
+          <ul class="tour__features">
+            <li>Perfect for first-time visitors</li>
+            <li>See the park's highlights</li>
+            <li>Great for couples &amp; small groups</li>
+          </ul>
           <button class="tour__stops-btn" data-tour="basic">
-            <span class="btn-text">View Stops</span>
-            <span class="btn-icon">+</span>
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
           </button>
           <div class="tour__stops-info">
             <h4>Tour Stops:</h4>
-            <ul>
-              <li>Bethesda Fountain</li>
-            </ul>
+            <ul><li>Bethesda Fountain</li></ul>
           </div>
-          <p class="tour__card-price">
-            <span>$50</span> <br />+$10 each additional person
-          </p>
-          <button class="tour__card-button">Book Now</button>
+          <button class="tour__card-button">BOOK 30 MIN TOUR</button>
         </div>
-        <div class="tour__card">
-          <div class="tour__card-media">
-            <img src="./img/tour-plan2.PNG" alt="Economy Tour" />
-          </div>
+
+        <div class="tour__card tour__card--popular">
+          <div class="tour__card-badge">MOST POPULAR</div>
+          <div class="tour__card-media"><img src="./img/tour-plan2.PNG" alt="Economy Tour" /></div>
+          <div class="tour__card-duration">40 MINUTES TOUR</div>
           <h3>Economy Tour</h3>
-          <p class="tour__duration">40 min / 2 Stops</p>
+          <div class="tour__card-price"><span>$60</span> <small>+$15 / extra person</small></div>
+          <ul class="tour__features">
+            <li>More stops &amp; photo opportunities</li>
+            <li>Movie locations included</li>
+            <li>Best value for your time</li>
+          </ul>
           <button class="tour__stops-btn" data-tour="economy">
-            <span class="btn-text">View Stops</span>
-            <span class="btn-icon">+</span>
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
           </button>
           <div class="tour__stops-info">
             <h4>Tour Stops:</h4>
@@ -237,38 +190,27 @@
               <li>Friends Fountain</li>
             </ul>
           </div>
-          <p class="tour__card-price">
-            <span>$60</span> <br />+$15 each additional person
-          </p>
-          <button class="tour__card-button">Book Now</button>
+          <button class="tour__card-button">BOOK 40 MIN TOUR</button>
         </div>
+
         <div class="tour__card">
-          <div class="tour__card-media">
-            <img src="./img/tour-plan3.PNG" alt="Classic Tour" />
-          </div>
+          <div class="tour__card-media"><img src="./img/tour-plan3.PNG" alt="Classic Tour" /></div>
+          <div class="tour__card-duration">50 MINUTES TOUR</div>
           <h3>Classic Tour</h3>
-          <p class="tour__duration">50 min / 3 Stops</p>
           <p class="tour__note">
             <span class="tour__note-icon" aria-hidden="true">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
-                />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
             </span>
-            <span class="tour__note-text"
-              >With drop-off (10 blocks away from park)</span
-            >
+            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
           </p>
+          <div class="tour__card-price"><span>$70</span> <small>+$20 / extra person</small></div>
+          <ul class="tour__features">
+            <li>The complete Central Park experience</li>
+            <li>All major attractions</li>
+            <li>Plenty of time for photos</li>
+          </ul>
           <button class="tour__stops-btn" data-tour="classic">
-            <span class="btn-text">View Stops</span>
-            <span class="btn-icon">+</span>
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
           </button>
           <div class="tour__stops-info">
             <h4>Tour Stops:</h4>
@@ -278,38 +220,27 @@
               <li>Home Alone 2 Bridge</li>
             </ul>
           </div>
-          <p class="tour__card-price">
-            <span>$70</span> <br />+$20 each additional person
-          </p>
-          <button class="tour__card-button">Book Now</button>
+          <button class="tour__card-button">BOOK 50 MIN TOUR</button>
         </div>
+
         <div class="tour__card">
-          <div class="tour__card-media">
-            <img src="./img/tour-plan4.PNG" alt="Deluxe Tour" />
-          </div>
+          <div class="tour__card-media"><img src="./img/tour-plan4.PNG" alt="Deluxe Tour" /></div>
+          <div class="tour__card-duration">60 MINUTES TOUR</div>
           <h3>Deluxe Tour</h3>
-          <p class="tour__duration">60 min / 4 Stops</p>
           <p class="tour__note">
             <span class="tour__note-icon" aria-hidden="true">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
-                />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
             </span>
-            <span class="tour__note-text"
-              >With drop-off (10 blocks away from park)</span
-            >
+            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
           </p>
+          <div class="tour__card-price"><span>$80</span> <small>+$25 / extra person</small></div>
+          <ul class="tour__features">
+            <li>The ultimate park adventure</li>
+            <li>All iconic landmarks</li>
+            <li>John Lennon Memorial included</li>
+          </ul>
           <button class="tour__stops-btn" data-tour="deluxe">
-            <span class="btn-text">View Stops</span>
-            <span class="btn-icon">+</span>
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
           </button>
           <div class="tour__stops-info">
             <h4>Tour Stops:</h4>
@@ -320,19 +251,50 @@
               <li>John Lennon Memorial</li>
             </ul>
           </div>
-          <p class="tour__card-price">
-            <span>$80</span> <br />+$25 each additional person
-          </p>
-          <button class="tour__card-button">Book Now</button>
+          <button class="tour__card-button">BOOK 60 MIN TOUR</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== GUARANTEES ===== -->
+    <section class="guarantees">
+      <div class="guarantees__grid">
+        <div class="guarantee__item">
+          <div class="guarantee__icon">✅</div>
+          <div class="guarantee__text">
+            <strong>100% Satisfaction</strong>
+            <small>Or Your Money Back</small>
+          </div>
+        </div>
+        <div class="guarantee__item">
+          <div class="guarantee__icon">🔓</div>
+          <div class="guarantee__text">
+            <strong>Free Cancellation</strong>
+            <small>Up to 24 Hours</small>
+          </div>
+        </div>
+        <div class="guarantee__item">
+          <div class="guarantee__icon">🔒</div>
+          <div class="guarantee__text">
+            <strong>Secure Booking</strong>
+            <small>Your Data is Safe</small>
+          </div>
+        </div>
+        <div class="guarantee__item">
+          <div class="guarantee__icon">⚡</div>
+          <div class="guarantee__text">
+            <strong>Instant Confirmation</strong>
+            <small>After Booking</small>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
       <div class="container">
         <h2>Welcome to Our Pedicab Tours</h2>
-        <!-- <p>We offer guided pedicap tours with friendly drivers and unforgettable city views.</p> -->
         <div class="about__features">
           <div>✅ Local Knowledge</div>
           <div>✅ Comfortable Rides</div>
@@ -341,8 +303,60 @@
       </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section class="roadmap">
+    <!-- ===== LANDMARK PHOTO GRID ===== -->
+    <section class="landmarks">
+      <h2 class="landmarks__title">See Central Park Like Never Before</h2>
+      <div class="landmarks__grid">
+        <div class="landmark__item">
+          <img src="./img/betesta-1.jpg" alt="Bethesda Fountain" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Bethesda Fountain</strong>
+            <small>Iconic landmark</small>
+          </div>
+        </div>
+        <div class="landmark__item">
+          <img src="./img/card__Bowh7.png" alt="Bow Bridge" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Bow Bridge</strong>
+            <small>Most photographed bridge</small>
+          </div>
+        </div>
+        <div class="landmark__item">
+          <img src="./img/card__imagine8h.png" alt="Strawberry Fields" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Strawberry Fields</strong>
+            <small>John Lennon Memorial</small>
+          </div>
+        </div>
+        <div class="landmark__item">
+          <img src="./img/gapstow__bridge.png" alt="Gapstow Bridge" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Gapstow Bridge</strong>
+            <small>From Home Alone</small>
+          </div>
+        </div>
+        <div class="landmark__item">
+          <img src="./img/car-pic5.JPG" alt="Pedicab Tour" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Pedicab Tour</strong>
+            <small>Private experience</small>
+          </div>
+        </div>
+        <div class="landmark__item">
+          <img src="./img/card__baltoh4.png" alt="Balto Statue" loading="lazy" />
+          <div class="landmark__overlay">
+            <strong>Balto Statue</strong>
+            <small>National hero, 1925</small>
+          </div>
+        </div>
+      </div>
+      <div class="landmarks__cta">
+        <a href="#roadmap" class="landmarks__btn">🗺️ VIEW FULL ROUTE</a>
+      </div>
+    </section>
+
+    <!-- ===== ROADMAP ===== -->
+    <section class="roadmap" id="roadmap">
       <h2 class="roadmap__title">Itinerary</h2>
       <p class="roadmap__subtitle">(Based on 1 Hour Tour)</p>
       <div class="roadmap__legend">
@@ -352,20 +366,12 @@
       <div class="roadmap__timeline">
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img
-              src="/img/statLib1.jpg"
-              alt="Statue"
-              class="roadmap__image hidden left"
-            />
+            <img src="/img/statLib1.jpg" alt="Statue" class="roadmap__image hidden left" />
             <h3>Starting point: (60 Minutes)</h3>
-            <p>
-              764 Doris C Freedman PI, New York, NY 10019 (in front of William
-              Sherman Monument)
-            </p>
+            <p>764 Doris C Freedman PI, New York, NY 10019 (in front of William Sherman Monument)</p>
           </div>
           <div class="roadmap__dot roadmap__stop"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
             <h3>Wollman Rink (Pass By)</h3>
@@ -373,18 +379,13 @@
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
             <h3>Chess House (Pass By)</h3>
-            <p>
-              Constructed in 1952. Circling the house are 24 tables for chess
-              and checkers
-            </p>
+            <p>Constructed in 1952. Circling the house are 24 tables for chess and checkers</p>
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
             <h3>The Carousel (Pass By)</h3>
@@ -392,7 +393,6 @@
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
             <h3>The Dairy (Pass By)</h3>
@@ -400,20 +400,14 @@
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img
-              src="/img/gapstow__bridge.png"
-              alt="Gapstow Bridge"
-              class="roadmap__image hidden right"
-            />
+            <img src="/img/gapstow__bridge.png" alt="Gapstow Bridge" class="roadmap__image hidden right" />
             <h3>Gapstow Bridge (3 Minutes)</h3>
             <p>From movie Home Alone. Bridge from 1986</p>
           </div>
           <div class="roadmap__dot roadmap__stop"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
             <h3>The Pond (Pass By)</h3>
@@ -430,11 +424,7 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img
-              src="/img/card__baltoh4.png"
-              alt="Balto"
-              class="roadmap__image hidden left"
-            />
+            <img src="/img/card__baltoh4.png" alt="Balto" class="roadmap__image hidden left" />
             <h3>Statue Balto (Pass By)</h3>
             <p>National hero, From movie Balto. Statue from 1925</p>
           </div>
@@ -447,7 +437,6 @@
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
-
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
             <h3>Conservatory Water (Pass By)</h3>
@@ -471,16 +460,9 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img
-              src="/img/card__fount2.png"
-              alt="Betesta Fountain"
-              class="roadmap__image hidden right"
-            />
+            <img src="/img/card__fount2.png" alt="Betesta Fountain" class="roadmap__image hidden right" />
             <h3>Bethesda Fountain - Bethesda Terrace (10 Minutes)</h3>
-            <p>
-              From movies Gossip Girls, Home alone, Elf ,Spider Man, Law and
-              Order, 27 Dresses. Avengers
-            </p>
+            <p>From movies Gossip Girls, Home alone, Elf, Spider Man, Law and Order, 27 Dresses, Avengers</p>
           </div>
           <div class="roadmap__dot roadmap__stop"></div>
         </div>
@@ -494,20 +476,13 @@
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
             <h3>The Lake (Pass By)</h3>
-            <p>
-              The 18-acre lake, known simply as "the Lake" is the largest
-              man-made body of water in the park
-            </p>
+            <p>The 18-acre lake, known simply as "the Lake" is the largest man-made body of water in the park</p>
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
-            <img
-              src="/img/card__Bowh7.png"
-              alt="Bow Bridge"
-              class="roadmap__image hidden left"
-            />
+            <img src="/img/card__Bowh7.png" alt="Bow Bridge" class="roadmap__image hidden left" />
             <h3>Bow Bridge (6 Minutes)</h3>
             <p>Completed 1862</p>
           </div>
@@ -516,10 +491,7 @@
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
             <h3>The Falconer Statue (Pass By)</h3>
-            <p>
-              This elegant bronze statue is the work of British sculptor George
-              Blackall Simonds
-            </p>
+            <p>This elegant bronze statue is the work of British sculptor George Blackall Simonds</p>
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
@@ -532,16 +504,9 @@
         </div>
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__right animate__fade-in">
-            <img
-              src="/img/card__imagine8h.png"
-              alt="Strawberry Fields"
-              class="roadmap__image hidden right"
-            />
+            <img src="/img/card__imagine8h.png" alt="Strawberry Fields" class="roadmap__image hidden right" />
             <h3>Strawberry Fields (7 Minutes)</h3>
-            <p>
-              Strawberry Fields was inaugurated on what would have been Lennon's
-              45th birthday, 9 October 1985
-            </p>
+            <p>Strawberry Fields was inaugurated on what would have been Lennon's 45th birthday, 9 October 1985</p>
           </div>
           <div class="roadmap__dot roadmap__stop"></div>
         </div>
@@ -562,10 +527,7 @@
         <div class="roadmap__line">
           <div class="roadmap__item roadmap__left animate__fade-in">
             <h3>Sheep Meadow (Pass by)</h3>
-            <p>
-              A 15 acre pasture, originally designated in 1864 by Olmsted and
-              Vaux as a grazing area for 200 sheep
-            </p>
+            <p>A 15 acre pasture, originally designated in 1864 by Olmsted and Vaux as a grazing area for 200 sheep</p>
           </div>
           <div class="roadmap__dot roadmap__pass"></div>
         </div>
@@ -586,491 +548,283 @@
       </div>
     </section>
 
-    <!-- Explore Section -->
-    <section class="explore">
-      <h2>Explore the Park</h2>
-      <div class="video__block">
-        <iframe
-          class="video__iframe"
-          width="80%"
-          height="600px"
-          src="https://www.youtube.com/embed/SBS6JUZ6J_0"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-        <!-- <button>▶</button> -->
-      </div>
-    </section>
-
-    <!-- Reviews Section -->
+    <!-- ===== REVIEWS ===== -->
     <section class="review__section" id="reviews">
-      <h2 class="review__title">What <span>People Say About Us</span></h2>
+      <p class="reviews__eyebrow">WHAT OUR GUESTS SAY</p>
+      <h2 class="review__title">Real Reviews from <span>Real People</span></h2>
       <div class="review__rating">
         <span>5.0</span>
         <div class="stars">★★★★★</div>
         <span>(1,326)</span>
       </div>
-
-      <div id="reviewContainer" class="review__container">
-        <!-- Reviews will be loaded here -->
-      </div>
-
-      <button id="loadMoreBtn" class="review__load-button">
-        Load More Reviews
-      </button>
+      <div id="reviewContainer" class="review__container"></div>
+      <button id="loadMoreBtn" class="review__load-button">Load More Reviews</button>
     </section>
 
-    <!-- Contact/Booking Section -->
-    <!-- <section class="form__section">
-  <h2 class="form__title">Book a Tour</h2>
-  <form action="/api/book" method="POST" class="form__container">
+    <!-- ===== LOCAL GUIDE + CTA ===== -->
+    <section class="local-guide">
+      <div class="local-guide__left">
+        <div class="local-guide__video-wrap">
+          <iframe
+            class="local-guide__iframe"
+            src="https://www.youtube.com/embed/SBS6JUZ6J_0"
+            title="WanderWay Central Park Tour"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="local-guide__quote">
+          <h3>Local Guide. Great Stories.<br />Unforgettable Memories.</h3>
+          <p>"I'm not just your driver — I'll be your local friend in New York. I'll show you the history, the hidden gems &amp; make sure you have an amazing time in Central Park!"</p>
+          <cite>— Bakha, Local Guide &amp; Driver</cite>
+        </div>
+      </div>
+      <div class="local-guide__right">
+        <div class="local-guide__cta-card">
+          <h3>Ready to Explore?</h3>
+          <p>Book your tour now and create memories that will last a lifetime!</p>
+          <div class="local-guide__phone">📲 929-645-7024</div>
+          <a href="#contact" class="local-guide__book-btn">📅 BOOK NOW</a>
+          <a
+            href="https://www.tiktok.com/@one_wander_way?_t=ZT-8wwAELjbuaE&_r=1"
+            class="local-guide__social-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="./img/tiktok.png" alt="TikTok" width="18" />
+            Follow on TikTok
+          </a>
+          <a
+            href="https://www.instagram.com/boyofcentralpark?igsh=OTdjemlkejBxcHp0&utm_source=qr"
+            class="local-guide__social-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="./img/instagram.png" alt="Instagram" width="18" />
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <input type="text" placeholder="Your Full Name" class="form__input" required>
-
-    <input type="tel" placeholder="Your Phone Number" class="form__input" required>
-
-    <input type="date" class="form__input form__date" required>
-
-    <input type="time" class="form__input" required>
-
-    <textarea placeholder="Special requests..." class="form__textarea"></textarea>
-
-    <button type="submit" class="form__button">Send Request</button>
-  </form>
-</section> -->
-
-    <!-- Booking Layout Container -->
+    <!-- ===== BOOKING LAYOUT ===== -->
     <div class="booking-layout">
-      <!-- Meeting Point -->
       <section class="meetingPoint">
         <h2 class="meetingPoint-title intro__title">Meeting Point</h2>
         <div class="meetingPoint__card">
-          <p>
-            764 Doris C Freedman PI, New York, NY 10019 (in front of William
-            Sherman Monument)
-          </p>
-          <a
-            href="https://maps.app.goo.gl/bMm2fPxTg7XrCiqq9?g_st=com.google.maps.preview.copy"
-          >
-            Open in Google Maps
-          </a>
+          <p>764 Doris C Freedman PI, New York, NY 10019 (in front of William Sherman Monument)</p>
+          <a href="https://maps.app.goo.gl/bMm2fPxTg7XrCiqq9?g_st=com.google.maps.preview.copy">Open in Google Maps</a>
         </div>
       </section>
 
-      <!-- Booking Info -->
       <section class="booking-info">
         <h2 class="booking-info__title intro__title">Book Your Tour Easily</h2>
         <div class="booking-info__card">
           <p>
-            When you schedule a tour, you'll receive a confirmation email with
-            the meeting point address and the name of your driver. If email does
-            not arrive, call us at
+            When you schedule a tour, you'll receive a confirmation email with the meeting point address and the name of your driver. If email does not arrive, call us at
             <a href="tel:+19296457024">+1 (929) 645-7024</a>.
           </p>
           <h3 class="booking-info__subtitle">Payment Information</h3>
-          <p>
-            Please note that all payments are made directly to the driver at the
-            meeting point before the tour begins.
-          </p>
+          <p>Please note that all payments are made directly to the driver at the meeting point before the tour begins.</p>
           <h3 class="booking-info__subtitle">Accepted Payments</h3>
           <div class="payment-methods" aria-label="Accepted payment methods">
-            <!-- Cash -->
             <div class="payment-method" aria-label="Cash">
               <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#22c55e">
-                <path
-                  d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 8V6L12 1L3 6V8H21M3 10V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V10H3M12 11C14.2 11 16 12.8 16 15S14.2 19 12 19 8 17.2 8 15 9.8 11 12 11M12 13C10.9 13 10 13.9 10 15S10.9 17 12 17 14 16.1 14 15 13.1 13 12 13Z"
-                />
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 8V6L12 1L3 6V8H21M3 10V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V10H3M12 11C14.2 11 16 12.8 16 15S14.2 19 12 19 8 17.2 8 15 9.8 11 12 11M12 13C10.9 13 10 13.9 10 15S10.9 17 12 17 14 16.1 14 15 13.1 13 12 13Z"/>
               </svg>
               <span class="payment-label">Cash</span>
             </div>
-
-            <!-- Venmo -->
             <div class="payment-method" aria-label="Venmo">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/venmo.svg"
-                alt="Venmo"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/venmo.svg" alt="Venmo" loading="lazy" />
               <span class="payment-label">Venmo</span>
             </div>
-
-            <!-- PayPal -->
             <div class="payment-method" aria-label="PayPal">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg"
-                alt="PayPal"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg" alt="PayPal" loading="lazy" />
               <span class="payment-label">PayPal</span>
             </div>
-
-            <!-- Zelle -->
             <div class="payment-method" aria-label="Zelle">
               <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#6c1fff">
-                <path
-                  d="M23.999 12c0 6.627-5.372 12-11.999 12S.001 18.627.001 12 5.373 0 12 0s11.999 5.373 11.999 12zM12 2.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S17.302 2.4 12 2.4zm5.694 7.203H9.847l5.458-4.072c.302-.225.362-.652.137-.954-.225-.302-.652-.362-.954-.137L7.2 9.694v-.847c0-.378-.306-.684-.684-.684s-.684.306-.684.684v2.306c0 .378.306.684.684.684h11.178c.378 0 .684-.306.684-.684s-.306-.684-.684-.684z"
-                />
+                <path d="M23.999 12c0 6.627-5.372 12-11.999 12S.001 18.627.001 12 5.373 0 12 0s11.999 5.373 11.999 12zM12 2.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S17.302 2.4 12 2.4zm5.694 7.203H9.847l5.458-4.072c.302-.225.362-.652.137-.954-.225-.302-.652-.362-.954-.137L7.2 9.694v-.847c0-.378-.306-.684-.684-.684s-.684.306-.684.684v2.306c0 .378.306.684.684.684h11.178c.378 0 .684-.306.684-.684s-.306-.684-.684-.684z"/>
               </svg>
               <span class="payment-label">Zelle</span>
             </div>
-
-            <!-- Cash App -->
             <div class="payment-method" aria-label="Cash App">
               <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#00d632">
-                <path
-                  d="M23.59 3.475a5.1 5.1 0 0 0-3.05-3.05c-1.31-.35-6.15-.35-6.15-.35s-4.85 0-6.15.35a5.1 5.1 0 0 0-3.05 3.05c-.35 1.3-.35 6.15-.35 6.15s0 4.85.35 6.15a5.1 5.1 0 0 0 3.05 3.05c1.3.35 6.15.35 6.15.35s4.85 0 6.15-.35a5.1 5.1 0 0 0 3.05-3.05c.35-1.3.35-6.15.35-6.15s0-4.85-.35-6.15zm-9.4 10.9h-2.4c-3.15 0-5.4-2.4-5.4-5.4s2.25-5.4 5.4-5.4h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05h-2.4c-1.95 0-3.3 1.35-3.3 3.3s1.35 3.3 3.3 3.3h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05z"
-                />
+                <path d="M23.59 3.475a5.1 5.1 0 0 0-3.05-3.05c-1.31-.35-6.15-.35-6.15-.35s-4.85 0-6.15.35a5.1 5.1 0 0 0-3.05 3.05c-.35 1.3-.35 6.15-.35 6.15s0 4.85.35 6.15a5.1 5.1 0 0 0 3.05 3.05c1.3.35 6.15.35 6.15.35s4.85 0 6.15-.35a5.1 5.1 0 0 0 3.05-3.05c.35-1.3.35-6.15.35-6.15s0-4.85-.35-6.15z"/>
               </svg>
               <span class="payment-label">Cash App</span>
             </div>
-
-            <!-- Debit/Credit Cards -->
             <div class="payment-method" aria-label="Visa">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg"
-                alt="Visa"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg" alt="Visa" loading="lazy" />
               <span class="payment-label">Visa</span>
             </div>
             <div class="payment-method" aria-label="Mastercard">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg"
-                alt="Mastercard"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg" alt="Mastercard" loading="lazy" />
               <span class="payment-label">Mastercard</span>
             </div>
             <div class="payment-method" aria-label="American Express">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg"
-                alt="American Express"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg" alt="American Express" loading="lazy" />
               <span class="payment-label">AmEx</span>
             </div>
             <div class="payment-method" aria-label="Discover">
-              <img
-                class="payment-icon-img"
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discover.svg"
-                alt="Discover"
-                loading="lazy"
-              />
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discover.svg" alt="Discover" loading="lazy" />
               <span class="payment-label">Discover</span>
             </div>
           </div>
-          <p class="booking-info__note">
-            Your booking process is simple, secure, and convenient.
-          </p>
+          <p class="booking-info__note">Your booking process is simple, secure, and convenient.</p>
         </div>
       </section>
 
-      <!-- Form Section -->
       <section class="form__section" id="contact">
         <h2 class="form__title">Book a Tour</h2>
-        <form
-          action="/api/book"
-          method="POST"
-          class="form__container"
-          id="bookingForm"
-          novalidate
-        >
+        <form action="/api/book" method="POST" class="form__container" id="bookingForm" novalidate>
           <input type="hidden" name="_next" value="/thankYou.html" />
           <label class="form__honeypot" aria-hidden="true">
             Website
             <input type="text" name="website" tabindex="-1" autocomplete="off" />
           </label>
 
-          <input
-            type="text"
-            name="Full Name"
-            placeholder="Your Full Name"
-            class="form__input"
-            required
-          />
+          <input type="text" name="Full Name" placeholder="Your Full Name" class="form__input" required />
+          <input type="email" name="Email Address" placeholder="Your Email Address" class="form__input" id="emailInput" required />
+          <div id="emailError" class="form__error-message" style="display: none"></div>
 
-          <input
-            type="email"
-            name="Email Address"
-            placeholder="Your Email Address"
-            class="form__input"
-            id="emailInput"
-            required
-          />
-          <div
-            id="emailError"
-            class="form__error-message"
-            style="display: none"
-          ></div>
-
-          <!-- Tour Type Selector -->
-          <!-- <label for="tourType" class="tour__Date">Choose a Tour</label> -->
-          <select
-            name="Tour Type"
-            id="tourType"
-            class="form__input tour__select"
-            required
-          >
+          <select name="Tour Type" id="tourType" class="form__input tour__select" required>
             <option value="">-- Select a Tour --</option>
-            <option title="30 min / 1 Stop • $35 (Bethesda Fountain)">
-              Basic Tour
-            </option>
-            <option
-              title="40 min / 2 Stops • $50 (Bethesda Fountain, Friends Fountain)"
-            >
-              Economy Tour
-            </option>
-            <option title="50 min / 3 Stops • $65 (Add Home Alone Bridge)">
-              Classic Tour
-            </option>
-            <option
-              title="60 min / 4 Stops • $75 (Full tour including John Lennon Memorial)"
-            >
-              Deluxe Tour
-            </option>
+            <option title="30 min / 1 Stop • $50 (Bethesda Fountain)">Basic Tour</option>
+            <option title="40 min / 2 Stops • $60 (Bethesda Fountain, Friends Fountain)">Economy Tour</option>
+            <option title="50 min / 3 Stops • $70 (Add Home Alone Bridge)">Classic Tour</option>
+            <option title="60 min / 4 Stops • $80 (Full tour including John Lennon Memorial)">Deluxe Tour</option>
           </select>
-          <input
-            type="number"
-            name="Number"
-            id="guestsInput"
-            placeholder="Number of Guests"
-            class="form__input"
-            min="1"
-            max="10"
-            required
-          />
-          <div
-            id="guestsError"
-            class="form__error-message"
-            style="display: none"
-          ></div>
 
-          <!-- Date (Calendar) -->
-          <label class="form__label tour__Date" for="tourDateTrigger"
-            >Choose a date</label
-          >
+          <input type="number" name="Number" id="guestsInput" placeholder="Number of Guests" class="form__input" min="1" max="10" required />
+          <div id="guestsError" class="form__error-message" style="display: none"></div>
+
+          <label class="form__label tour__Date" for="tourDateTrigger">Choose a date</label>
           <div class="date-picker" id="tourDatePicker">
-            <input
-              type="hidden"
-              id="tourDate"
-              name="Tour Date"
-              required
-            />
-            <button
-              type="button"
-              id="tourDateTrigger"
-              class="date-picker__trigger form__input"
-              aria-haspopup="dialog"
-              aria-expanded="false"
-              aria-labelledby="tourDatePickerLabel"
-            >
-              <span class="date-picker__text date-picker__text--placeholder"
-                >Select tour date</span
-              >
-              <span
-                class="date-picker__text date-picker__text--value"
-                hidden
-              ></span>
+            <input type="hidden" id="tourDate" name="Tour Date" required />
+            <button type="button" id="tourDateTrigger" class="date-picker__trigger form__input" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="tourDatePickerLabel">
+              <span class="date-picker__text date-picker__text--placeholder">Select tour date</span>
+              <span class="date-picker__text date-picker__text--value" hidden></span>
               <span class="date-picker__icon" aria-hidden="true">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
                 </svg>
               </span>
             </button>
-            <div
-              class="date-picker__backdrop"
-              id="tourDateBackdrop"
-              hidden
-              aria-hidden="true"
-            ></div>
-            <div
-              class="date-picker__popover"
-              id="tourDatePopover"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Choose tour date"
-              hidden
-            >
+            <div class="date-picker__backdrop" id="tourDateBackdrop" hidden aria-hidden="true"></div>
+            <div class="date-picker__popover" id="tourDatePopover" role="dialog" aria-modal="true" aria-label="Choose tour date" hidden>
               <div class="date-picker__header">
-                <button
-                  type="button"
-                  class="date-picker__nav"
-                  data-action="prev-month"
-                  aria-label="Previous month"
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
+                <button type="button" class="date-picker__nav" data-action="prev-month" aria-label="Previous month">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
                 <span class="date-picker__month" id="tourDateMonthLabel"></span>
-                <button
-                  type="button"
-                  class="date-picker__nav"
-                  data-action="next-month"
-                  aria-label="Next month"
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
+                <button type="button" class="date-picker__nav" data-action="next-month" aria-label="Next month">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
               </div>
               <div class="date-picker__weekdays" aria-hidden="true">
-                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span
-                ><span>Th</span><span>Fr</span><span>Sa</span>
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
               </div>
               <div class="date-picker__grid" id="tourDateGrid"></div>
             </div>
           </div>
-          <span id="tourDatePickerLabel" class="visually-hidden"
-            >Tour date picker</span
-          >
+          <span id="tourDatePickerLabel" class="visually-hidden">Tour date picker</span>
 
-          <!-- Time Selector -->
           <select name="Tour Time" class="form__input" required>
             <option value="">-- Choose Preferred Time --</option>
-            <option>06:00 AM</option>
-            <option>07:00 AM</option>
-            <option>08:00 AM</option>
-            <option>09:00 AM</option>
-            <option>10:00 AM</option>
-            <option>11:00 AM</option>
-            <option>12:00 PM</option>
-            <option>01:00 PM</option>
-            <option>02:00 PM</option>
-            <option>03:00 PM</option>
-            <option>04:00 PM</option>
-            <option>05:00 PM</option>
-            <option>06:00 PM</option>
-            <option>07:00 PM</option>
-            <option>08:00 PM</option>
-            <option>09:00 PM</option>
-            <option>10:00 PM</option>
+            <option>06:00 AM</option><option>07:00 AM</option><option>08:00 AM</option>
+            <option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+            <option>12:00 PM</option><option>01:00 PM</option><option>02:00 PM</option>
+            <option>03:00 PM</option><option>04:00 PM</option><option>05:00 PM</option>
+            <option>06:00 PM</option><option>07:00 PM</option><option>08:00 PM</option>
+            <option>09:00 PM</option><option>10:00 PM</option>
           </select>
 
-          <textarea
-            name="Special Requests"
-            placeholder="Special requests..."
-            class="form__textarea"
-          ></textarea>
+          <textarea name="Special Requests" placeholder="Special requests..." class="form__textarea"></textarea>
 
-          <div
-            id="formStatus"
-            class="form__status"
-            role="alert"
-            aria-live="polite"
-          ></div>
-
-          <button type="submit" class="form__button" id="submitButton">
-            Send Request
-          </button>
+          <div id="formStatus" class="form__status" role="alert" aria-live="polite"></div>
+          <button type="submit" class="form__button" id="submitButton">Send Request</button>
           <p class="form__helper">
-            If you do not receive a confirmation email within a few minutes,
-            call
+            If you do not receive a confirmation email within a few minutes, call
             <a href="tel:+19296457024">+1 (929) 645-7024</a>.
           </p>
         </form>
       </section>
     </div>
 
-    <!-- Pay-after-tour notice (shown when booking from tour cards) -->
-    <div
-      id="payNoticeModal"
-      class="pay-notice-modal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="payNoticeTitle"
-    >
+    <!-- ===== PAY NOTICE MODAL ===== -->
+    <div id="payNoticeModal" class="pay-notice-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="payNoticeTitle">
       <div class="pay-notice-modal__backdrop" aria-hidden="true"></div>
       <div class="pay-notice-modal__dialog">
         <div class="pay-notice-modal__icon" aria-hidden="true">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-            <circle
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              stroke-width="1.5"
-            />
-            <path
-              d="M8.5 12.5l2.2 2.2 4.8-5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8.5 12.5l2.2 2.2 4.8-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h2 id="payNoticeTitle" class="pay-notice-modal__title">
-          No payment before your ride
-        </h2>
+        <h2 id="payNoticeTitle" class="pay-notice-modal__title">No payment before your ride</h2>
         <p class="pay-notice-modal__text">
           We won&rsquo;t charge you anything upfront. You can pay your driver
-          <strong>after</strong> your tour, at the meeting point&mdash;when
-          you&rsquo;re ready to roll.
+          <strong>after</strong> your tour, at the meeting point&mdash;when you&rsquo;re ready to roll.
         </p>
-        <button type="button" class="pay-notice-modal__btn" id="payNoticeGotIt">
-          Got it
-        </button>
+        <button type="button" class="pay-notice-modal__btn" id="payNoticeGotIt">Got it</button>
       </div>
     </div>
 
-    <!-- Tour card lightbox -->
-    <div
-      id="tourCardModal"
-      class="tour-modal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="tourModalTitle"
-    >
+    <!-- ===== TOUR CARD LIGHTBOX ===== -->
+    <div id="tourCardModal" class="tour-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
       <p class="tour-modal__hint">Click anywhere to close</p>
       <div class="tour-modal__backdrop"></div>
       <div class="tour-modal__inner"></div>
     </div>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
-      <div class="container">
+      <div class="footer__badges">
+        <div class="footer__badge">
+          <span class="footer__badge-icon">🚲</span>
+          <div class="footer__badge-text">
+            <strong>NYC Licensed</strong>
+            <small>Pedicab Driver</small>
+          </div>
+        </div>
+        <div class="footer__badge">
+          <span class="footer__badge-icon">🛡️</span>
+          <div class="footer__badge-text">
+            <strong>Fully Insured</strong>
+            <small>For Your Safety</small>
+          </div>
+        </div>
+        <div class="footer__badge">
+          <span class="footer__badge-icon">⭐</span>
+          <div class="footer__badge-text">
+            <strong>Top Rated 5.0</strong>
+            <small>on Google</small>
+          </div>
+        </div>
+        <div class="footer__badge">
+          <span class="footer__badge-icon">🤝</span>
+          <div class="footer__badge-text">
+            <strong>Supporting</strong>
+            <small>Local Business</small>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
         <p>&copy; 2025 WanderWay. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="https://www.tiktok.com/@one_wander_way?_t=ZT-8wwAELjbuaE&_r=1" target="_blank" rel="noopener">
+            <img src="./img/tiktok.png" alt="TikTok" />
+          </a>
+          <a href="https://www.instagram.com/boyofcentralpark?igsh=OTdjemlkejBxcHp0&utm_source=qr" target="_blank" rel="noopener">
+            <img src="./img/instagram.png" alt="Instagram" />
+          </a>
+        </div>
       </div>
     </footer>
 

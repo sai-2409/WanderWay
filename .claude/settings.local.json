@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(curl *)",
-      "Bash(python3 -m json.tool)"
+      "Bash(python3 -m json.tool)",
+      "Skill(run)",
+      "Bash(npm start *)",
+      "Bash(npx playwright *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"require\\('puppeteer'\\)\")",
+      "Read(//usr/local/lib/node_modules/**)",
+      "Bash(npx @playwright/test --version)",
+      "Bash(node take_screenshots.mjs)",
+      "Bash(npm root *)"
     ]
   }
 }

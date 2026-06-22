@@ -31,6 +31,10 @@
           <a href="#reviews">Reviews</a>
           <a href="#roadmap">Itinerary</a>
           <a href="#contact">Contact</a>
+          <div class="header__nav-mobile-cta">
+            <a href="tel:+19296457024" class="header__nav-phone">📲 Call / Text — 929-645-7024</a>
+            <a href="#contact" class="header__nav-book">📅 Book Your Tour</a>
+          </div>
         </nav>
 
         <div class="header__actions">
@@ -74,11 +78,6 @@
             <span class="hero__trust-pill">✅ Family Friendly</span>
           </div>
 
-          <div class="hero__ctas">
-            <a href="#contact" class="hero__btn-primary">📅 BOOK YOUR TOUR NOW</a>
-            <a href="tel:+19296457024" class="hero__btn-secondary">📞 CALL / TEXT</a>
-          </div>
-
           <div class="hero__social-proof">
             <div class="hero__avatars" aria-hidden="true">
               <span class="hero__avatar">👤</span>
@@ -96,164 +95,6 @@
           <div class="hero__google-stars">★★★★★</div>
           <div><strong>5.0</strong> · 1,326 Reviews</div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== INTRO + CAROUSEL ===== -->
-    <section class="intro" id="intro">
-      <div class="intro__content">
-        <h2 class="intro__title">Discover Central Park with Us</h2>
-        <p class="intro__text">
-          At WanderWay, we don't just offer rides — we create unforgettable
-          moments in the heart of New York City. Our guided Pedicab tours take
-          you on a relaxing journey through the beauty and history of Central
-          Park, with four iconic stops every visitor should experience:
-          <strong>Bethesda Fountain</strong>, <strong>Friends Fountain</strong>,
-          <strong>the famous Home Alone 2 bridge</strong>, and the peaceful
-          <strong>John Lennon Memorial at Strawberry Fields</strong>.
-        </p>
-        <a href="#tours" class="intro__button">See Tours</a>
-
-        <div class="carousel">
-          <div class="carousel__container">
-            <div class="carousel__track" id="carouselTrack">
-              <div class="carousel__item"><img src="./img/car-pic1.JPG" alt="Bethesda Fountain" /></div>
-              <div class="carousel__item"><img src="./img/car-pic2.JPG" alt="John Lennon Memorial" /></div>
-              <div class="carousel__item"><img src="./img/car-pic3.JPG" alt="Central Park scenery" /></div>
-              <div class="carousel__item"><img src="./img/car-pic4.JPG" alt="Friends Fountain" /></div>
-              <div class="carousel__item"><img src="./img/car-pic5.JPG" alt="Home Alone 2 Bridge" /></div>
-              <div class="carousel__item"><img src="./img/car-pic6.JPG" alt="Pedicab tour moment" /></div>
-              <div class="carousel__item"><img src="./img/car-pic7.JPG" alt="Central Park path" /></div>
-              <div class="carousel__item"><img src="./img/car-pic8.JPG" alt="Guests enjoying the tour" /></div>
-            </div>
-            <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Previous photo">
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button type="button" class="carousel__btn carousel__btn--next" aria-label="Next photo">
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
-            <div class="carousel__counter" aria-live="polite">
-              <span id="carouselCurrent">1</span><span class="carousel__counter-sep">/</span><span id="carouselTotal">8</span>
-            </div>
-          </div>
-          <div class="carousel__dots" id="carouselDots"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== TOURS ===== -->
-    <section class="tours" id="tours">
-      <div class="tours__header">
-        <h2 class="tours__title">Central Park <span>PEDICAB</span> Guided Tours</h2>
-        <p class="tours__subtitle">Choose the perfect tour for your adventure</p>
-      </div>
-      <div class="tour__grid">
-
-        <div class="tour__card">
-          <div class="tour__card-media"><img src="./img/tour-plan1.PNG" alt="Basic Tour" /></div>
-          <div class="tour__card-duration">30 MINUTES TOUR</div>
-          <h3>Basic Tour</h3>
-          <div class="tour__card-price"><span>$50</span> <small>+$10 / extra person</small></div>
-          <ul class="tour__features">
-            <li>Perfect for first-time visitors</li>
-            <li>See the park's highlights</li>
-            <li>Great for couples &amp; small groups</li>
-          </ul>
-          <button class="tour__stops-btn" data-tour="basic">
-            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
-          </button>
-          <div class="tour__stops-info">
-            <h4>Tour Stops:</h4>
-            <ul><li>Bethesda Fountain</li></ul>
-          </div>
-          <button class="tour__card-button">BOOK 30 MIN TOUR</button>
-        </div>
-
-        <div class="tour__card tour__card--popular">
-          <div class="tour__card-badge">MOST POPULAR</div>
-          <div class="tour__card-media"><img src="./img/tour-plan2.PNG" alt="Economy Tour" /></div>
-          <div class="tour__card-duration">40 MINUTES TOUR</div>
-          <h3>Economy Tour</h3>
-          <div class="tour__card-price"><span>$60</span> <small>+$15 / extra person</small></div>
-          <ul class="tour__features">
-            <li>More stops &amp; photo opportunities</li>
-            <li>Movie locations included</li>
-            <li>Best value for your time</li>
-          </ul>
-          <button class="tour__stops-btn" data-tour="economy">
-            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
-          </button>
-          <div class="tour__stops-info">
-            <h4>Tour Stops:</h4>
-            <ul>
-              <li>Bethesda Fountain</li>
-              <li>Friends Fountain</li>
-            </ul>
-          </div>
-          <button class="tour__card-button">BOOK 40 MIN TOUR</button>
-        </div>
-
-        <div class="tour__card">
-          <div class="tour__card-media"><img src="./img/tour-plan3.PNG" alt="Classic Tour" /></div>
-          <div class="tour__card-duration">50 MINUTES TOUR</div>
-          <h3>Classic Tour</h3>
-          <p class="tour__note">
-            <span class="tour__note-icon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
-            </span>
-            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
-          </p>
-          <div class="tour__card-price"><span>$70</span> <small>+$20 / extra person</small></div>
-          <ul class="tour__features">
-            <li>The complete Central Park experience</li>
-            <li>All major attractions</li>
-            <li>Plenty of time for photos</li>
-          </ul>
-          <button class="tour__stops-btn" data-tour="classic">
-            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
-          </button>
-          <div class="tour__stops-info">
-            <h4>Tour Stops:</h4>
-            <ul>
-              <li>Bethesda Fountain</li>
-              <li>Friends Fountain</li>
-              <li>Home Alone 2 Bridge</li>
-            </ul>
-          </div>
-          <button class="tour__card-button">BOOK 50 MIN TOUR</button>
-        </div>
-
-        <div class="tour__card">
-          <div class="tour__card-media"><img src="./img/tour-plan4.PNG" alt="Deluxe Tour" /></div>
-          <div class="tour__card-duration">60 MINUTES TOUR</div>
-          <h3>Deluxe Tour</h3>
-          <p class="tour__note">
-            <span class="tour__note-icon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
-            </span>
-            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
-          </p>
-          <div class="tour__card-price"><span>$80</span> <small>+$25 / extra person</small></div>
-          <ul class="tour__features">
-            <li>The ultimate park adventure</li>
-            <li>All iconic landmarks</li>
-            <li>John Lennon Memorial included</li>
-          </ul>
-          <button class="tour__stops-btn" data-tour="deluxe">
-            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
-          </button>
-          <div class="tour__stops-info">
-            <h4>Tour Stops:</h4>
-            <ul>
-              <li>Bethesda Fountain</li>
-              <li>Friends Fountain</li>
-              <li>Home Alone 2 Bridge</li>
-              <li>John Lennon Memorial</li>
-            </ul>
-          </div>
-          <button class="tour__card-button">BOOK 60 MIN TOUR</button>
-        </div>
-
       </div>
     </section>
 
@@ -609,6 +450,164 @@
       </div>
     </section>
 
+    <!-- ===== INTRO + CAROUSEL ===== -->
+    <section class="intro" id="intro">
+      <div class="intro__content">
+        <h2 class="intro__title">Discover Central Park with Us</h2>
+        <p class="intro__text">
+          At WanderWay, we don't just offer rides — we create unforgettable
+          moments in the heart of New York City. Our guided Pedicab tours take
+          you on a relaxing journey through the beauty and history of Central
+          Park, with four iconic stops every visitor should experience:
+          <strong>Bethesda Fountain</strong>, <strong>Friends Fountain</strong>,
+          <strong>the famous Home Alone 2 bridge</strong>, and the peaceful
+          <strong>John Lennon Memorial at Strawberry Fields</strong>.
+        </p>
+        <a href="#tours" class="intro__button">See Tours</a>
+
+        <div class="carousel">
+          <div class="carousel__container">
+            <div class="carousel__track" id="carouselTrack">
+              <div class="carousel__item"><img src="./img/car-pic1.JPG" alt="Bethesda Fountain" /></div>
+              <div class="carousel__item"><img src="./img/car-pic2.JPG" alt="John Lennon Memorial" /></div>
+              <div class="carousel__item"><img src="./img/car-pic3.JPG" alt="Central Park scenery" /></div>
+              <div class="carousel__item"><img src="./img/car-pic4.JPG" alt="Friends Fountain" /></div>
+              <div class="carousel__item"><img src="./img/car-pic5.JPG" alt="Home Alone 2 Bridge" /></div>
+              <div class="carousel__item"><img src="./img/car-pic6.JPG" alt="Pedicab tour moment" /></div>
+              <div class="carousel__item"><img src="./img/car-pic7.JPG" alt="Central Park path" /></div>
+              <div class="carousel__item"><img src="./img/car-pic8.JPG" alt="Guests enjoying the tour" /></div>
+            </div>
+            <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Previous photo">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button type="button" class="carousel__btn carousel__btn--next" aria-label="Next photo">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <div class="carousel__counter" aria-live="polite">
+              <span id="carouselCurrent">1</span><span class="carousel__counter-sep">/</span><span id="carouselTotal">8</span>
+            </div>
+          </div>
+          <div class="carousel__dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TOURS ===== -->
+    <section class="tours" id="tours">
+      <div class="tours__header">
+        <h2 class="tours__title">Central Park <span>PEDICAB</span> Guided Tours</h2>
+        <p class="tours__subtitle">Choose the perfect tour for your adventure</p>
+      </div>
+      <div class="tour__grid">
+
+        <div class="tour__card">
+          <div class="tour__card-media"><img src="./img/tour-plan1.PNG" alt="Basic Tour" /></div>
+          <div class="tour__card-duration">30 MINUTES TOUR</div>
+          <h3>Basic Tour</h3>
+          <div class="tour__card-price"><span>$50</span> <small>+$10 / extra person</small></div>
+          <ul class="tour__features">
+            <li>Perfect for first-time visitors</li>
+            <li>See the park's highlights</li>
+            <li>Great for couples &amp; small groups</li>
+          </ul>
+          <button class="tour__stops-btn" data-tour="basic">
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul><li>Bethesda Fountain</li></ul>
+          </div>
+          <button class="tour__card-button">BOOK 30 MIN TOUR</button>
+        </div>
+
+        <div class="tour__card tour__card--popular">
+          <div class="tour__card-badge">MOST POPULAR</div>
+          <div class="tour__card-media"><img src="./img/tour-plan2.PNG" alt="Economy Tour" /></div>
+          <div class="tour__card-duration">40 MINUTES TOUR</div>
+          <h3>Economy Tour</h3>
+          <div class="tour__card-price"><span>$60</span> <small>+$15 / extra person</small></div>
+          <ul class="tour__features">
+            <li>More stops &amp; photo opportunities</li>
+            <li>Movie locations included</li>
+            <li>Best value for your time</li>
+          </ul>
+          <button class="tour__stops-btn" data-tour="economy">
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+            </ul>
+          </div>
+          <button class="tour__card-button">BOOK 40 MIN TOUR</button>
+        </div>
+
+        <div class="tour__card">
+          <div class="tour__card-media"><img src="./img/tour-plan3.PNG" alt="Classic Tour" /></div>
+          <div class="tour__card-duration">50 MINUTES TOUR</div>
+          <h3>Classic Tour</h3>
+          <p class="tour__note">
+            <span class="tour__note-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            </span>
+            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
+          </p>
+          <div class="tour__card-price"><span>$70</span> <small>+$20 / extra person</small></div>
+          <ul class="tour__features">
+            <li>The complete Central Park experience</li>
+            <li>All major attractions</li>
+            <li>Plenty of time for photos</li>
+          </ul>
+          <button class="tour__stops-btn" data-tour="classic">
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+              <li>Home Alone 2 Bridge</li>
+            </ul>
+          </div>
+          <button class="tour__card-button">BOOK 50 MIN TOUR</button>
+        </div>
+
+        <div class="tour__card">
+          <div class="tour__card-media"><img src="./img/tour-plan4.PNG" alt="Deluxe Tour" /></div>
+          <div class="tour__card-duration">60 MINUTES TOUR</div>
+          <h3>Deluxe Tour</h3>
+          <p class="tour__note">
+            <span class="tour__note-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            </span>
+            <span class="tour__note-text">With drop-off (10 blocks away from park)</span>
+          </p>
+          <div class="tour__card-price"><span>$80</span> <small>+$25 / extra person</small></div>
+          <ul class="tour__features">
+            <li>The ultimate park adventure</li>
+            <li>All iconic landmarks</li>
+            <li>John Lennon Memorial included</li>
+          </ul>
+          <button class="tour__stops-btn" data-tour="deluxe">
+            <span class="btn-text">View Stops</span><span class="btn-icon">+</span>
+          </button>
+          <div class="tour__stops-info">
+            <h4>Tour Stops:</h4>
+            <ul>
+              <li>Bethesda Fountain</li>
+              <li>Friends Fountain</li>
+              <li>Home Alone 2 Bridge</li>
+              <li>John Lennon Memorial</li>
+            </ul>
+          </div>
+          <button class="tour__card-button">BOOK 60 MIN TOUR</button>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ===== BOOKING LAYOUT ===== -->
     <div class="booking-layout">
       <section class="meetingPoint">
@@ -772,6 +771,57 @@
           We won&rsquo;t charge you anything upfront. You can pay your driver
           <strong>after</strong> your tour, at the meeting point&mdash;when you&rsquo;re ready to roll.
         </p>
+        <div class="pay-notice-modal__payments">
+          <h3 class="pay-notice-modal__subtitle">Payment Information</h3>
+          <p class="pay-notice-modal__payment-note">
+            All payments are made directly to your driver at the meeting point.
+          </p>
+          <h3 class="pay-notice-modal__subtitle">Accepted Payments</h3>
+          <div class="payment-methods payment-methods--modal" aria-label="Accepted payment methods">
+            <div class="payment-method" aria-label="Cash">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#22c55e">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 8V6L12 1L3 6V8H21M3 10V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V10H3M12 11C14.2 11 16 12.8 16 15S14.2 19 12 19 8 17.2 8 15 9.8 11 12 11M12 13C10.9 13 10 13.9 10 15S10.9 17 12 17 14 16.1 14 15 13.1 13 12 13Z"/>
+              </svg>
+              <span class="payment-label">Cash</span>
+            </div>
+            <div class="payment-method" aria-label="Venmo">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/venmo.svg" alt="Venmo" loading="lazy" />
+              <span class="payment-label">Venmo</span>
+            </div>
+            <div class="payment-method" aria-label="PayPal">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/paypal.svg" alt="PayPal" loading="lazy" />
+              <span class="payment-label">PayPal</span>
+            </div>
+            <div class="payment-method" aria-label="Zelle">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#6c1fff">
+                <path d="M23.999 12c0 6.627-5.372 12-11.999 12S.001 18.627.001 12 5.373 0 12 0s11.999 5.373 11.999 12zM12 2.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6 9.6-4.298 9.6-9.6S17.302 2.4 12 2.4zm5.694 7.203H9.847l5.458-4.072c.302-.225.362-.652.137-.954-.225-.302-.652-.362-.954-.137L7.2 9.694v-.847c0-.378-.306-.684-.684-.684s-.684.306-.684.684v2.306c0 .378.306.684.684.684h11.178c.378 0 .684-.306.684-.684s-.306-.684-.684-.684z"/>
+              </svg>
+              <span class="payment-label">Zelle</span>
+            </div>
+            <div class="payment-method" aria-label="Cash App">
+              <svg class="payment-icon-img" viewBox="0 0 24 24" fill="#00d632">
+                <path d="M23.59 3.475a5.1 5.1 0 0 0-3.05-3.05c-1.31-.35-6.15-.35-6.15-.35s-4.85 0-6.15.35a5.1 5.1 0 0 0-3.05 3.05c-.35 1.3-.35 6.15-.35 6.15s0 4.85.35 6.15a5.1 5.1 0 0 0 3.05 3.05c1.3.35 6.15.35 6.15.35s4.85 0 6.15-.35a5.1 5.1 0 0 0 3.05-3.05c.35-1.3.35-6.15.35-6.15s0-4.85-.35-6.15zm-9.4 10.9h-2.4c-3.15 0-5.4-2.4-5.4-5.4s2.25-5.4 5.4-5.4h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05h-2.4c-1.95 0-3.3 1.35-3.3 3.3s1.35 3.3 3.3 3.3h2.4c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05z"/>
+              </svg>
+              <span class="payment-label">Cash App</span>
+            </div>
+            <div class="payment-method" aria-label="Visa">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg" alt="Visa" loading="lazy" />
+              <span class="payment-label">Visa</span>
+            </div>
+            <div class="payment-method" aria-label="Mastercard">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg" alt="Mastercard" loading="lazy" />
+              <span class="payment-label">Mastercard</span>
+            </div>
+            <div class="payment-method" aria-label="American Express">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg" alt="American Express" loading="lazy" />
+              <span class="payment-label">AmEx</span>
+            </div>
+            <div class="payment-method" aria-label="Discover">
+              <img class="payment-icon-img" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discover.svg" alt="Discover" loading="lazy" />
+              <span class="payment-label">Discover</span>
+            </div>
+          </div>
+        </div>
         <button type="button" class="pay-notice-modal__btn" id="payNoticeGotIt">Got it</button>
       </div>
     </div>
